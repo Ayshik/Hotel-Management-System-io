@@ -110,7 +110,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
 
                 if(mysqli_query($con,$sql))
                 {
-                    echo "successful";
+                    
                 }
                 else {
                     echo "Error updating record: " . mysqli_error($con);
@@ -147,7 +147,7 @@ function update_login()
     $sql = "update login set user_name = '$uname' , password = '$hash_pass' where user_name = '$uname_db' "; 
         if(mysqli_query($con,$sql))
         {
-            echo "successful login table";
+
         }
         else
         {

@@ -21,6 +21,8 @@ else{
         <li><a href="../logout.php"> LOGOUT </a></li>
         <li><a href="#"> SETTING </a></li>
         <li><a href="add_owner.php"> ADD OWNER </a></li>
+        <li><a href="add_manager.php"> ADD MANAGER </a></li>
+
     </ul>
     <div>
 

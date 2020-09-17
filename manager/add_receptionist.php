@@ -40,9 +40,9 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
           $flag=1;
         }
 
-        if(isset($_POST["btn_owner"]))
+        if(isset($_POST["btn_manager"]))
         {
-            add_owner();
+            add_by_owner();
         }
 }
 }
@@ -59,7 +59,7 @@ function validate($data)
   return $data;
 }
 
-function add_owner()
+function add_by_owner()
 {
     global $uname , $pass , $flag , $con;
     if($flag == 0)
@@ -69,7 +69,7 @@ function add_owner()
 
         $hash_pass=password_hash($pass,PASSWORD_DEFAULT);
 
-        $sql1="insert into login(user_name,password,user_type) values('$uname','$hash_pass',4)";
+        $sql1="insert into login(user_name,password,user_type) values('$uname','$hash_pass',2)";
         if(mysqli_query($con,$sql1)){
         }
         else{
@@ -83,22 +83,22 @@ function add_owner()
 <!DOCTYPE html>
 <html>
 <head>
-	<title>ADD OWNER</title>
+	<title>ADD MANAGER</title>
 </head>
 <body>
     <div>
     <ul>
-        <li><a href="owner_dashboard.php"> DASHBOARD </a></li>
+        <li><a href="manager_dashboard.php"> DASHBOARD </a></li>
         <li><a href="../logout.php"> LOGOUT </a></li>
         <li><a href="#"> SETTING </a></li>
-        <li><a href="add_owner.php"> ADD OWNER </a></li>
-        <li><a href="add_manager.php"> ADD MANAGER </a></li>
-
+        <li><a href="add_receptionist.php"> ADD RECEPTIONIST </a></li>
     </ul>
     <div>
 
-<form method="POST" action="<?php htmlspecialchars($_SERVER['PHP_SELF'])?>" name="add_owner">
-<h1>ADD OWNER</h1>
+<form method="POST" action="<?php htmlspecialchars($_SERVER['PHP_SELF'])?>" name="add_by_owner">
+
+<h1>ADD MANAGER</h1>
+
     <table>
         <tr>
             <td><p>USERNAME</p></td>
@@ -134,10 +134,10 @@ function add_owner()
         </tr>
 
         <tr>
-            <td><input type="submit" name="btn_owner"></td>
+            <td><input type="submit" name="btn_manager"></td>
         </tr>
     </table>
 </form>
 </body>
-<script src="../js/add_owner.js"></script>
+<script src="../js/add_by_owner.js"></script>
 </html>    
