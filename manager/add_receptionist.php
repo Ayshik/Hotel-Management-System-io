@@ -83,7 +83,7 @@ function add_by_owner()
 <!DOCTYPE html>
 <html>
 <head>
-	<title>ADD MANAGER</title>
+	<title>ADD  RECEPTIONIST</title>
 </head>
 <body>
     <div>
@@ -97,7 +97,7 @@ function add_by_owner()
 
 <form method="POST" action="<?php htmlspecialchars($_SERVER['PHP_SELF'])?>" name="add_by_owner">
 
-<h1>ADD MANAGER</h1>
+<h1>ADD RECEPTIONIST</h1>
 
     <table>
         <tr>
