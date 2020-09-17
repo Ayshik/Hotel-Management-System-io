@@ -97,7 +97,7 @@ function add_owner()
     </ul>
     <div>
 
-<form method="POST" action="<?php htmlspecialchars($_SERVER['PHP_SELF'])?>" name="add_owner">
+<form method="POST" action="<?php htmlspecialchars($_SERVER['PHP_SELF'])?>" name="add_by_owner">
 <h1>ADD OWNER</h1>
     <table>
         <tr>
