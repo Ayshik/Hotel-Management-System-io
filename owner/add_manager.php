@@ -16,7 +16,8 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
 	    	$flag=1;
 	    }
 	    else{
-	    	$uname=validate($_POST['uname']);
+            $uname=validate($_POST['uname']);
+            $uname = strtoupper($uname);
 	    }
 	    if(empty($_POST['pass']))
 	    {
