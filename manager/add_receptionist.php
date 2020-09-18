@@ -94,7 +94,7 @@ function add_by_owner()
         <li><a href="add_receptionist.php"> ADD RECEPTIONIST </a></li>
     </ul>
     <div>
-
+<!-- reuse the add_by_owner.js file with form name  -->
 <form method="POST" action="<?php htmlspecialchars($_SERVER['PHP_SELF'])?>" name="add_by_owner">
 
 <h1>ADD RECEPTIONIST</h1>

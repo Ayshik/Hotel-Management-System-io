@@ -139,5 +139,5 @@ function add_owner()
     </table>
 </form>
 </body>
-<script src="../js/add_owner.js"></script>
+<script src="../js/add_by_owner.js"></script>
 </html>    

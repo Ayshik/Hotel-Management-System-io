@@ -12,7 +12,7 @@ else{
 <!DOCTYPE html>
 <html>
 <head>
-	<title>USER_UPDATE</title>
+	<title>OWNER DASHBOARD </title>
 </head>
 <body>
     <div>

@@ -90,6 +90,9 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
         }
         else
         {
+          // js validation counting
+          if( empty($uname_err) && empty($old_pass_err) )
+          {
             if(!password_verify($pass,$old_pass_db))
             {
                 //update query
@@ -124,6 +127,11 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
                 $pass_err="OLD AND NEW PASSWORD CAN NOT BE SAME";
             }
         }
+        else
+        {
+            // error message 
+        }
+      }
 
     }
 }
