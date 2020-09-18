@@ -12,7 +12,7 @@ else{
 <!DOCTYPE html>
 <html>
 <head>
-	<title>OWNER DASHBOARD </title>
+	<title> FEEDBACK FROM CUSTOMER </title>
 </head>
 <body>
     <div>

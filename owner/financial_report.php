@@ -12,7 +12,7 @@ else{
 <!DOCTYPE html>
 <html>
 <head>
-	<title>OWNER DASHBOARD </title>
+	<title> FINANCIAL REPORT </title>
 </head>
 <body>
     <div>
@@ -22,8 +22,9 @@ else{
         <li><a href="setting.php"> SETTINGS </a></li>
         <li><a href="add_owner.php"> ADD OWNER </a></li>
         <li><a href="add_manager.php"> ADD MANAGER </a></li>
-        <li><a href="financial_report.php"> FINANCIAL REPORT </a></li>
+        <li><a href="financial_report.php"> FINANCIAL REPORT </a></li>  
         <li><a href="report.php"> FEEDBACK FROM CUSTOMER </a></li>
+
 
     </ul>
     <div>

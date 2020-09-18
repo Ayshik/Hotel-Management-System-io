@@ -12,7 +12,7 @@ else{
 <!DOCTYPE html>
 <html>
 <head>
-	<title>MANAGER DASHBOARD</title>
+	<title> SETTING </title>
 </head>
 <body>
     <div>

@@ -12,7 +12,7 @@ else{
 <!DOCTYPE html>
 <html>
 <head>
-	<title>MANAGER DASHBOARD</title>
+	<title> ROOM CUSTOMIZATION </title>
 </head>
 <body>
     <div>

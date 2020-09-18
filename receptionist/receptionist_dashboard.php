@@ -19,12 +19,13 @@ else{
     <ul>
         <li><a href="receptionist_dashboard.php"> DASHBOARD </a></li>
         <li><a href="../logout.php"> LOGOUT </a></li>
-        <li><a href="#"> SETTING </a></li>
-        <li><a href=".php"> PREBOOK REQUESTS </a></li>
-        <li><a href=".php"> PREBOOKED </a></li>
-        <li><a href=".php"> OFFLINE BOOKING </a></li>
-        <li><a href=".php"> BOOKED ROOM </a></li>
-        <li><a href=".php"> REPORT </a></li>
+        <li><a href="setting.php"> SETTINGS </a></li>
+        <li><a href="prebook_request.php"> PREBOOK REQUESTS </a></li>
+        <li><a href="prebooked_all.php"> PREBOOKED </a></li>
+        <li><a href="offline_book.php"> OFFLINE BOOKING </a></li>
+        <li><a href="booked_room.php"> BOOKED ROOM </a></li>
+        <li><a href="chat_box.php"> CHAT BOX</a></li>
+        <li><a href="report.php"> REPORT </a></li>
 
     </ul>
     <div>
