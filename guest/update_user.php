@@ -43,10 +43,21 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
         }
         if(empty($_POST['uname']))
         {
-            $uname_err="USERNAME CAN NOT BE EMPTY";
+            $uname_err = "USERNAME CAN NOT BE EMPTY";
         }else{
           $uname=validate($_POST['uname']);
           $uname = strtoupper($uname); 
+
+          
+          $name=mysqli_real_escape_string($con,$uname);
+          $sql="select * from login where user_name='$uname'";
+          $result=mysqli_query($con,$sql);
+          $row = mysqli_num_rows($result);
+          
+          if($row>0)
+          {
+            $uname_err = "USERNAME ALREADY EXISTS";
+          }
         }
         if(empty($_POST['pass']))
         {

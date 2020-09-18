@@ -18,6 +18,16 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
 	    else{
             $uname=validate($_POST['uname']);
             $uname = strtoupper($uname);
+
+            $name=mysqli_real_escape_string($con,$uname);
+            $sql="select * from login where user_name='$uname'";
+            $result=mysqli_query($con,$sql);
+            $row = mysqli_num_rows($result);
+          
+            if($row>0)
+            {
+              $uname_err = "USERNAME ALREADY EXISTS";
+            }
 	    }
 	    if(empty($_POST['pass']))
 	    {
