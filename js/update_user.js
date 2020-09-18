@@ -8,7 +8,7 @@ form.omload = check_password();
 function check_username(){
 uname.onblur =function(){
 
-    var name=uname.value;
+    var name=uname.value.toUpperCase();
     var param="name="+name;
     var xhr =new XMLHttpRequest();
     xhr.open('POST','../check_username_ajax.php');
@@ -27,7 +27,7 @@ uname.onblur =function(){
 function check_password(){
     old_pass.onblur =function(){
 
-        var name=uname.value;
+        var name=uname.value.toUpperCase();
         var old=old_pass.value;
         var param="name="+name+"&pass="+old;
         var xhr =new XMLHttpRequest();

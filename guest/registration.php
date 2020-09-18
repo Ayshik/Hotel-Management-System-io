@@ -24,6 +24,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
         $uname_err="USERNAME CAN NOT BE EMPTY";
     }else{
       $uname=validate($_POST['uname']);
+      $uname = strtoupper($uname); 
     }
     if(empty($_POST['pass']))
     {

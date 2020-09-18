@@ -20,6 +20,11 @@ else{
         <li><a href="receptionist_dashboard.php"> DASHBOARD </a></li>
         <li><a href="../logout.php"> LOGOUT </a></li>
         <li><a href="#"> SETTING </a></li>
+        <li><a href=".php"> PREBOOK REQUESTS </a></li>
+        <li><a href=".php"> PREBOOKED </a></li>
+        <li><a href=".php"> OFFLINE BOOKING </a></li>
+        <li><a href=".php"> BOOKED ROOM </a></li>
+        <li><a href=".php"> REPORT </a></li>
 
     </ul>
     <div>

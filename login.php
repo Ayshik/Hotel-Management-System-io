@@ -13,6 +13,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 	}
 	else{
 		$uname=validate($_POST['uname']);
+		$uname = strtoupper($uname); 
 		$uname=mysqli_real_escape_string($con,$uname);
 	}
 	if(empty($_POST['pass']))

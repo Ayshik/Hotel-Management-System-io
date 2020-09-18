@@ -13,7 +13,7 @@ else{
 <!DOCTYPE html>
 <html>
 <head>
-	<title>USER_DASHBOARD</title>
+	<title> BOOKING </title>
 </head>
 <body>
 <div>

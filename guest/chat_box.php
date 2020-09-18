@@ -13,7 +13,7 @@ else{
 <!DOCTYPE html>
 <html>
 <head>
-	<title>USER_DASHBOARD</title>
+	<title> CHAT BOX </title>
 </head>
 <body>
 <div>
@@ -25,8 +25,8 @@ else{
         <li><a href="cancel_booking.php"> CANCEL BOOKING </a></li>
         <li><a href="history.php">  HISTORY   </a></li>
         <li><a href="pre_booking_details.php"> PREBOOKED DETAILS</a></li>
-        <li><a href="chat_box.php"> CHAT BOX</a></li>
-        <li><a href="report.php"> REPORT </a></li>      
+        <li><a href="chat_box.php"> CHAT BOX </a></li>
+        <li><a href="report.php"> REPORT </a></li>        
     </ul>
    
 

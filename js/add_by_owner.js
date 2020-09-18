@@ -6,7 +6,7 @@ form.onload = check_username();
 function check_username(){
 uname.onblur =function(){
 
-    var name=uname.value;
+    var name=uname.value.toUpperCase();
     var param="name="+name;
     var xhr =new XMLHttpRequest();
     xhr.open('POST','../check_username_ajax.php');

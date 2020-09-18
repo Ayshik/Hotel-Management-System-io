@@ -46,6 +46,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
             $uname_err="USERNAME CAN NOT BE EMPTY";
         }else{
           $uname=validate($_POST['uname']);
+          $uname = strtoupper($uname); 
         }
         if(empty($_POST['pass']))
         {
@@ -178,6 +179,12 @@ function update_login()
         <li><a href="user_dashboard.php"> DASHBOARD </a></li>
         <li><a href="../logout.php"> LOGOUT </a></li>
         <li><a href="update_user.php"> SETTING </a></li>
+        <li><a href="pre_booking.php"> BOOKING </a></li>
+        <li><a href="cancel_booking.php"> CANCEL BOOKING </a></li>
+        <li><a href="history.php">  HISTORY   </a></li>
+        <li><a href="pre_booking_details.php"> PREBOOKED DETAILS</a></li>
+        <li><a href="chat_box.php"> CHAT BOX</a></li>
+        <li><a href="report.php"> REPORT </a></li>  
     </ul>
    
 <form name='update' method="POST" action="<?php htmlspecialchars($_SERVER['PHP_SELF'])?>">
