@@ -89,27 +89,10 @@ function add_by_owner()
       mysqli_close($con);
     }
 }
+
+include('../rss/Dheader&navbarfor_manager.php');
 ?>
 
-<!DOCTYPE html>
-<html>
-<head>
-	<title>ADD  RECEPTIONIST</title>
-</head>
-<body>
-    <div>
-    <ul>
-    <li><a href="manager_dashboard.php"> DASHBOARD </a></li>
-        <li><a href="../logout.php"> LOGOUT </a></li>
-        <li><a href="setting.php"> SETTING </a></li>
-        <li><a href="add_receptionist.php"> ADD RECEPTIONIST </a></li>
-        <li><a href="receptionist_attendance.php"> RECEPTIONIST ATTENDANCE </a></li>
-        <li><a href="room_customize.php"> ROOM CUSTOMIZATION </a></li>
-        <li><a href="pricing_view.php"> VIEW AND PRICE CUSTOMIZATION </a></li>
-        <li><a href="report_by_customer.php"> FEEDBACK FROM CUSTOMER </a></li>
-        <li><a href="financial_report.php"> FINANCIAL REPORT </a></li>      
-    </ul>
-    <div>
 <!-- reuse the add_by_owner.js file with form name  -->
 <form method="POST" action="<?php htmlspecialchars($_SERVER['PHP_SELF'])?>" name="add_by_owner">
 

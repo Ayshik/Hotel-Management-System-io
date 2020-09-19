@@ -17,7 +17,7 @@
             <h3><a href="../home.html">OCEAN PARADISE</a></h3>
           </div>
           <div class="welcome">
-            <h1>Welcome Manager</h1>
+            <h1>Welcome RECEPTIONIST</h1>
             <div class="rightmenu">
               <button id="buttonone" onclick="window.location.href='../logout.php';">
                 Logout
@@ -36,29 +36,30 @@
       <header>Manager's Area</header>
       <ul>
         <li>
-          <a href="manager_dashboard.php"><i class="fas fa-qrcode"></i>Dashboard</a>
+        <a href="receptionist_dashboard.php"><i class="fas fa-qrcode"></i>Dashboard</a>
         </li>
         <li>
           <a href="setting.php"><i class="fas fa-link"></i>Profile</a>
         </li>
         <li>
-          <a href="add_receptionist.php"><i class="fas fa-stream"></i>ADD RECEPTIONIST</a>
+        <a href="prebook_request.php"><i class="fas fa-stream"></i>PREBOOK REQUESTS</a>
         </li>
         <li>
-          <a href="receptionist_attendance.php"><i class="fas fa-stream"></i>RECEPTIONIST ATTENDANCE</a>
+        <a href="prebooked_all.php"><i class="fas fa-stream"></i>PREBOOKED </a>
         </li>
         <li>
-          <a href="room_customize.php"><i class="fas fa-stream"></i>ROOM CUSTOMIZATION</a>
+        <a href="offline_book.php"><i class="fas fa-stream"></i>OFFLINE BOOKING</a>
         </li>
         <li>
-          <a href="picture_customize.php"><i class="fas fa-stream"></i>Picture CUSTOMIZATION</a>
+        <a href="booked_room.php"> <i class="fas fa-stream"></i>BOOKED ROOM</a>
         </li>
         
         <li>
-          <a href="financial_report.php"><i class="fas fa-stream"></i>FINANCIAL REPORT</a>
+          
+        <a href="chat_box.php"><i class="fas fa-stream"></i> CHAT BOX</a>
         </li>
         <li>
-          <a href="report_by_customer.php"
+          <a href="report.php"
             ><i class="fas fa-calendar-week"></i>FEEDBACK FROM CUSTOMER</a
           >
         </li>
