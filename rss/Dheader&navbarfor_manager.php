@@ -7,7 +7,7 @@
 
     <link rel="stylesheet" href="../css/blank.css" />
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+    
   </head>
   <body>
     <header class="header">
@@ -19,11 +19,7 @@
           <div class="welcome">
             <h1>Welcome Manager</h1>
             <div class="rightmenu">
-              <button
-                id="buttonone"
-                <
-                onclick="window.location.href='../logout.php';"
-              >
+              <button id="buttonone" onclick="window.location.href='../logout.php';">
                 Logout
               </button>
             </div>

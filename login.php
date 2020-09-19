@@ -84,18 +84,36 @@ function login_validation()
 	}
 }
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
-	<title>LOGIN</title>
-	<link rel="stylesheet" href="css/login.css">
+<link rel="stylesheet" href="css/login.css">
 </head>
-<body>
-<div class='navbar'>
-<a href="index.php">Home</a>
-<a href="guest/registration.php">Registration</a>
-<a href="login.php">Login</a>
-</div>
+  <body>
+  <!-- header -->
+  <div class="menu">
+        <div class="leftmenu">
+          <h3><a href="index.php">
+
+            <div class="logo">
+                 <img src= "css/image/LOGO.png" class="img" style="width: 100%; padding-top: 10px; height: 110px">
+                </div>
+
+          </a></h3>
+        </div>
+        <div class="rightmenu">
+          <ul>
+            <li> <a href="index.php">HOME</a></li>
+            <li> <a href="">Services</a></li>
+            <li> <a href="">Nuru massage</a></li>
+            <li> <a href="aboutus.html">About Us</a></li>
+			<li> <a href="contact.html">Contact</a></li>
+			<li> <a href="login.php">LOGIN</a></li>
+          </ul>
+        </div>
+      </div>
+<!-- header -->
 
 <form method="post" action="<?php htmlspecialchars($_SERVER['PHP_SELF'])?>">
 	<div>
@@ -126,6 +144,7 @@ function login_validation()
 		<td><input type="submit" name="submit" value="LOGIN"></td>
 	</tr>
 </table>
+   <p> DON'T HAVE ACCOUNT <a href='guest/registration.php'>REGISTER NOW!</a>
 </fieldset>
 </div>
 </form>

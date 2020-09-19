@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Pulok er Hotel</title>
+    <title>OCEAN PARADISE</title>
     <link rel="stylesheet" type="text/css" href="css/home.css" />
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
     <link href="http://fonts.googleapis.com/css?family=Cookie" rel="stylesheet" type="text/css">
@@ -13,6 +13,9 @@
       href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans"
       rel="stylesheet"
     />
+    <link rel="stylesheet" type="text/css" href="css/login.css" />
+    <link rel="stylesheet" type="text/css" href="css/registration.css" />
+    
   </head>
   <body>
 
@@ -21,7 +24,7 @@
           <h3><a href="index.php">
 
             <div class="logo">
-                 <img src="http://www.oceanparadisehotel.com/assets/frontend/images/01_01_default/LOGO1.png" class="img" style="width: 110%; padding-top: 10px;">
+                 <img src= "css/image/LOGO.png" class="img" style="width: 100%; padding-top: 10px; height: 110px">
                 </div>
 
           </a></h3>

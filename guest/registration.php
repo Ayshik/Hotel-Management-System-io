@@ -105,6 +105,7 @@ mysqli_close($con);
 
 }
 ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -112,15 +113,34 @@ mysqli_close($con);
   <link rel="stylesheet" href="../css/registration.css">
 </head>
 <body>
+  <!-- header -->
+<div class="menu">
+        <div class="leftmenu">
+          <h3><a href="index.php">
+
+            <div class="logo">
+                 <img src= "../css/image/LOGO.png" class="img" style="width: 100%; padding-top: 10px; height: 110px">
+                </div>
+
+          </a></h3>
+        </div>
+        <div class="rightmenu">
+          <ul>
+            <li><a href="../index.php">HOME</a></li>
+            <li><a href="">Services</a></li>
+            <li><a href="">Nuru massage</a></li>
+            <li><a href="aboutus.html">About Us</a></li>
+            <li> <a href="contact.html">Contact</a> </li>
+            <li> <a href="../login.php">LOGIN</a></li>
+          </ul>
+        </div>
+      </div>
+<!-- header -->
+<!-- error must be in red -->
 <form method="post" action="<?php htmlspecialchars($_SERVER['PHP_SELF'])?>" name="registration">
-<div class='navbar'>
-    <a href="../index.html">Home</a>
-    <a href="registration.php">Registration</a>
-    <a href="../login.php">Login</a>
-</div>
 <div class='full_form'>
       <h4>REGISTRATION</h2>
-      <table class='table'>
+      <table class='table_reg'>
         <tr>
           <td><input type="text" name="name" placeholder='NAME' value="<?php echo $name;?>"></td>
         </tr>

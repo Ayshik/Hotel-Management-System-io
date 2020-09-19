@@ -49,10 +49,8 @@ if(isset($_SESSION['user_name']))
 				while ($row = mysqli_fetch_assoc($result))
 				{
 				$sl = $row['serial'];
-				}
-				$cat = explode('-',$category);
-				$cat_second_part = $cat[1];
-				$room_number = $class[0].$cat_second_part[0].$sl;
+				}			
+				$room_number = $class[0].$category[0].$sl;
 
 				$sql2 = " update room_details set room_number = '$room_number' where serial = '$sl' ";
 
@@ -196,15 +194,10 @@ body{
 
                     <select  name="Category"><br><br>
 
-                       <option value="Premium-Single" selected>Premium-Single</option>
-                       <option value="Premium-Double">Premium-Double</option>
-                       <option value="Premium-Family">Premium-Family</option>
-                       <option value="Economy-Single">Economy-Single</option>
-                       <option value="Economy-Double">Economy-Double</option>
-                       <option value="Economy-Family">Economy-Family</option>
-                       <option value="Basic-Single">Basic-Single</option>
-                       <option value="Basic-Double">Basic-Double</option>
-                       <option value="Basic-Family">Basic-Family</option>
+                       <option value="Single" selected>Single</option>
+                       <option value="Double">Double</option>
+                       <option value="Family">Family</option>
+                       
 
                     </select>
 

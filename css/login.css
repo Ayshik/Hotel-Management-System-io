@@ -9,20 +9,74 @@ body{
     background-size: cover;
     background-repeat: no-repeat;
 }
-.navbar{
-    display: block-inline;
-    /* color: crimson; */
-    margin-left:500px;
-}
-.navbar a{
+
+/* header */
+.menu {
+    width: 100%;
+    height: 100px;
+    background-color:black;
+  }
+  
+  .leftmenu {
+    width: 20%;
+    line-height: 100px;
+    float: left;
+    /*	background-color: yellow;*/
+  }
+  
+  .leftmenu h3 {
+    padding-left: 70px;
+    font-weight: bold;
+    color: white;
+    font-size: 22px;
+    font-family: "Montserrat", sans-serif;
+    cursor: pointer;
+  }
+  .leftmenu h3 a {
+    color: white;
     text-decoration: none;
-    padding:10px;
-    margin:5px;
-    /* background-color:#e46612; */
-    color: rgb(15, 34, 207);
-}
+  }
+  
+  .rightmenu {
+    width: 70%;
+    height: 100px;
+    float: right;
+    /*	background-color: red; */
+  }
+  
+  .rightmenu ul {
+    margin-left: 200px;
+  }
+  
+  .rightmenu ul li {
+    font-family: "Montserrat", sans-serif;
+    display: inline-block;
+    list-style: none;
+    font-size: 15px;
+    color: white;
+    font-weight: bold;
+    line-height: 100px;
+    margin-left: 40px;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+  
+  #fisrtlist {
+    color: orange;
+  }
+  .rightmenu ul li a:hover {
+    color: orange;
+    text-decoration: none;
+  }
+  .rightmenu ul li a {
+    color: white;
+    text-decoration: none;
+  }
+/* header */
+
+
 .field{
-    height: 400px;
+    height: auto;
     width:300px;
     margin: 200px auto;
     border:dotted;
@@ -34,7 +88,7 @@ body{
     font-size: 20px;
 }
 .table{
-    margin: 50px auto;
+    margin: 30px auto;
     text-align: center;
 }
 .table p{
@@ -60,4 +114,16 @@ body{
     text-align: center;
     outline: none;
     background-color: #568FD5;
+}
+p{
+    margin:0 0 10px 40px;
+    font-size: 20px;
+}
+p a{
+    margin:0 0 10px 30px;
+    font-size: 20px;
+    text-decoration: none;
+    color: black;
+    border-bottom:1px solid black;
+    
 }
