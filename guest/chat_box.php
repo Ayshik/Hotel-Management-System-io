@@ -6,30 +6,29 @@ if(isset($_SESSION['user_name']))
     // echo $_SESSION['user_name'];
 }
 else{
+
     header("Location: ../login.php");
 }
+
+include "../rss/Dheader&navbarfor_user.php";
+
 ?>
 
-<!DOCTYPE html>
-<html>
-<head>
-	<title> CHAT BOX </title>
-</head>
-<body>
-<div>
-    <ul>
-        <li><a href="user_dashboard.php"> DASHBOARD </a></li>
-        <li><a href="../logout.php"> LOGOUT </a></li>
-        <li><a href="update_user.php"> SETTING </a></li>
-        <li><a href="pre_booking.php"> BOOKING </a></li>
-        <li><a href="cancel_booking.php"> CANCEL BOOKING </a></li>
-        <li><a href="history.php">  HISTORY   </a></li>
-        <li><a href="pre_booking_details.php"> PREBOOKED DETAILS</a></li>
-        <li><a href="chat_box.php"> CHAT BOX </a></li>
-        <li><a href="report.php"> REPORT </a></li>        
-    </ul>
-   
-
+ <section>
+      <div class="main-section">
+        <div class="dashbord">
+          <div class="icon-section">
+            
+			
+			
+			
+			
+			
+			
+          </div>
+        </div>
+      </div>
+    </section>
 
 
 </body>

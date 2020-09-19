@@ -101,7 +101,7 @@ body{
       <div class="icon-section">
 
         <div class="wrapper">
-          <h2>Report</h2>
+          <h2>Update Profile</h2>
           <div id="error_message"></div>
 <form name='update' onsubmit="return validate();" method="POST" action="">
 
@@ -109,37 +109,65 @@ body{
 				
 
 				<div class="input_field">
-            			<label for="Name">Name:</label >
-                    <input type="text" placeholder="Sender" value="" id="bal"  >
-                </div>
-                <div class="input_field">
-            			<label for="send">Send To :</label>
-
-                    <select name="To" id="subject"name="To"><br><br>
+				
+				
+				<label for="Name">Name:</label >
+          <td><input type="text" name="name" placeholder='NAME' value=""></td>
 
 
-    <option value="Manager" selected>Manager</option>
-    <option value="Owner">Owner</option>
-    
-
-  </select>
 
 
-            		</div>
-            		<div class="input_field">
-            			<label for="subject">Subject:</label>
-            				<input type="text" name="sub" placeholder="Subject" id="subject"><br><br>
-            		</div>
 
-                <div class="input_field">
-<label for="massage">Massage:</label>
-                    <textarea placeholder="Message" name="msg" id="message"></textarea>
-                </div>
+             
+
+        <tr>
+          <td><p>EMAIL</p></td>
+        </tr>
+        <tr>
+          <td><input type="email" name="Email" placeholder='EMAIL' value=""></td>
+        </tr>
+        
+
+        
+
+      
+
+        <tr>
+          <td><p>NATIONAL ID NUMBER:</p></td>
+        </tr>
+        <tr>
+         <td><input type="number" name="nid" placeholder='NATIONAL ID NUMBER' value="" readonly></td>
+        </tr>
+       
+
+       <tr>
+          <td><p>PHONE NUMBER</p></td>
+        </tr>
+       <tr>
+         <td><input type="number" name="phone" placeholder='PHONE NUMBER' value=""></td>
+        </tr>
+        
+
+       <tr>
+          <td><p>ADDRESS</p></td>
+        </tr>
+       <tr>
+         <td>
+           <textarea placeholder='ADDRESS' name="address"></textarea></td>
+        </tr>
+		
+		
+		 <tr>
+          <td><p>Payment</p></td>
+        </tr>
+       <tr>
+         <td><input type="number" name="payment" id="tk" value="500"></td>
+        </tr>
         
             			
     <div class="btn">
        <tr>
-         <td colspan=2><input type="submit" name="btn_submit" value="Send" id='btn_submit'></td>
+         <td colspan=2><input type="submit" name="btn_submit" value="Book" id='btn_submit'></td>
        </tr>
     </div>
        
