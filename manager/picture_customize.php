@@ -19,14 +19,7 @@ else{
 include('../rss/Dheader&navbarfor_manager.php');
 ?>
 <style>
-*{
-  margin: 0;  /*this margin break the design */
-  padding: 0;
-  box-sizing: border-box;
-  outline: none;
-  font-family: 'Josefin Sans', sans-serif;
-  font-weight: bold;
-}
+
 
 body{
 
@@ -42,10 +35,21 @@ body{
     background: #fff;
     padding: 26px;
     border-radius: 5px;
-    box-shadow: 4px 4px 2px rgba(254,236,164,1);
+
     flex: 23px;
 }
+.cpic{
 
+	margin: 0;  /*this margin break the design */
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: bold;
+
+
+
+}
 .wrapper h2{
   text-align: center;
   margin-bottom: 20px;
@@ -106,8 +110,8 @@ body{
           <div class="icon-section">
             <div class="wrapper">
 
-
-          <h2>Room Customize</h2>
+<div class="cpic">
+          <h2>Room Picturre Customize</h2>
             <div id="error_message" > <?php echo $error_message; ?> </div>
               <form id="myform" method="post" action="" >
                 <div class="input_field">
@@ -136,6 +140,8 @@ body{
                 <div class="btn">
                     <input type="submit" name="insertreport" value="Done">
                 </div>
+
+							</div>
               </form>
             </div>
 
