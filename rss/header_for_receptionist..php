@@ -33,7 +33,7 @@
       <i class="fas fa-times" id="cancel"></i>
     </label>
     <div class="sidebar">
-      <header>Manager's Area</header>
+      <header>RECEPTIONIST Area</header>
       <ul>
         <li>
         <a href="receptionist_dashboard.php"><i class="fas fa-qrcode"></i>Dashboard</a>
