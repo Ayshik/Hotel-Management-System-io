@@ -248,7 +248,6 @@ body{
      }
 
 
-     alert("Updated Successfully!");
      return true;
    }
 </script>

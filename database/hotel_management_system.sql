@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 19, 2020 at 08:41 PM
+-- Generation Time: Sep 19, 2020 at 10:50 PM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.1.33
 
@@ -66,8 +66,15 @@ CREATE TABLE `room_details` (
 --
 
 INSERT INTO `room_details` (`serial`, `class`, `category`, `room_number`, `price`, `status`) VALUES
-(7, 'Basic', 'Basic-Family', 'BF7', 1505, 'FREE'),
-(8, 'Economy', 'Basic-Family', 'EF8', 2000, 'FREE');
+(9, 'Premium', 'Single', 'PS9', 1000, 'FREE'),
+(10, 'Premium', 'Double', 'PD10', 2000, 'FREE'),
+(11, 'Premium', 'Family', 'PF11', 2500, 'FREE'),
+(12, 'Economy', 'Single', 'ES12', 1500, 'FREE'),
+(13, 'Economy', 'Double', 'ED13', 2500, 'FREE'),
+(14, 'Economy', 'Family', 'EF14', 3000, 'FREE'),
+(15, 'Basic', 'Single', 'BS15', 1500, 'FREE'),
+(16, 'Basic', 'Double', 'BD16', 2000, 'FREE'),
+(17, 'Basic', 'Family', 'BF17', 2500, 'FREE');
 
 -- --------------------------------------------------------
 
@@ -108,7 +115,8 @@ ALTER TABLE `login`
 -- Indexes for table `room_details`
 --
 ALTER TABLE `room_details`
-  ADD PRIMARY KEY (`serial`);
+  ADD PRIMARY KEY (`serial`),
+  ADD UNIQUE KEY `room_number` (`room_number`);
 
 --
 -- Indexes for table `user`
@@ -125,7 +133,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `room_details`
 --
 ALTER TABLE `room_details`
-  MODIFY `serial` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `serial` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `user`
