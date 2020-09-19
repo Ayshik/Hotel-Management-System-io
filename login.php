@@ -1,5 +1,7 @@
 <?php
 session_start();
+
+
 include "database/db_connect.php";
 $uname_err=$pass_err="";
 $flag=0;
@@ -90,7 +92,7 @@ function login_validation()
 </head>
 <body>
 <div class='navbar'>
-<a href="index.html">Home</a>
+<a href="index.php">Home</a>
 <a href="guest/registration.php">Registration</a>
 <a href="login.php">Login</a>
 </div>
