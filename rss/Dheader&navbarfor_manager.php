@@ -55,6 +55,9 @@
           <a href="room_customize.php"><i class="fas fa-stream"></i>ROOM CUSTOMIZATION</a>
         </li>
         <li>
+          <a href="picture_customize.php"><i class="fas fa-stream"></i>Picture CUSTOMIZATION</a>
+        </li>
+        <li>
           <a href="pricing_view.php"><i class="fas fa-stream"></i>VIEW AND PRICE CUSTOMIZATION</a>
         </li><li>
           <a href="financial_report.php"><i class="fas fa-stream"></i>FINANCIAL REPORT</a>

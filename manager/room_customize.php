@@ -25,7 +25,7 @@ if(isset($_SESSION['user_name']))
 		{
 			$category = $_POST['Category'];
 			$category=mysqli_real_escape_string($con,$category);
-			
+
 		}
 
 		if(empty($_POST['Price']))
@@ -39,7 +39,7 @@ if(isset($_SESSION['user_name']))
 		}
 
 		$sql = "insert into room_details(class,category,room_number,price,status) values ('$class' , '$category' , '0' , '$price' , 'FREE')";
-		if (mysqli_query($con, $sql)) 
+		if (mysqli_query($con, $sql))
 		{
 			$sql1 = "select serial from room_details where class = '$class' and category = '$category' and room_number = '0' and price = '$price' ";
 
@@ -55,7 +55,7 @@ if(isset($_SESSION['user_name']))
 				$room_number = $class[0].$cat_second_part[0].$sl;
 
 				$sql2 = " update room_details set room_number = '$room_number' where serial = '$sl' ";
-				
+
 				if(mysqli_query($con,$sql2))
 				{
 
@@ -67,8 +67,8 @@ if(isset($_SESSION['user_name']))
 			} else {
 			  echo "room_details table Error while fetching serial: " . $sql . "<br>" . mysqli_error($con);
 			}
-			
-		} 
+
+		}
 		else {
 		  echo "room_details table Error while inserting: " . $sql . "<br>" . mysqli_error($con);
 		}
@@ -83,7 +83,7 @@ include('../rss/Dheader&navbarfor_manager.php');
 ?>
 <style>
 *{
-  margin: 8px;  /*this margin break the design */
+  margin: 0;  /*this margin break the design */
   padding: 0;
   box-sizing: border-box;
   outline: none;
@@ -97,15 +97,16 @@ body{
 
 .wrapper{
   position: absolute;
-    top: 54%;
+    top: 48%;
     left: 52%;
-    transform: translate(-50%,-50%);
-    max-width: 415px;
-    width: 110%;
+    transform: translate(-47%,-50%);
+    max-width: 322px;
+    width: 109%;
     background: #fff;
-    padding: 25px;
+    padding: 26px;
     border-radius: 5px;
     box-shadow: 4px 4px 2px rgba(254,236,164,1);
+    flex: 23px;
 }
 
 .wrapper h2{
@@ -184,7 +185,7 @@ body{
                     <option value="Premium" selected>Premium</option>
                     <option value="Economy" >Economy</option>
                     <option value="Basic">Basic</option>
-                    
+
                   </select>
 
             		</div>
@@ -211,17 +212,12 @@ body{
 
                 <div class="input_field">
             			<label for="Price">Room Price :</label >
-						<!-- should be number type only -->
+
                     <input type="number" placeholder="Give Room Price" name="Price" value="" id="bal" >
                 </div>
-				
-				<!-- picture will be from another part  -->
-                <div class="input_field">
-                    <label for="pic">Picture :</label >
-                    <input type="file" id="dur" name="location">
-						<img id="mia" class="item-image"  style="margin-right:20px" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQQ7nSLyWSKwxVwYlwWSjxcWZ2TZsw6n1O5iw&amp;usqp=CAU" alt="your image">
-					</img>
-				</div>
+
+
+
 
                 <div class="btn">
                     <input type="submit" name="insertreport" value="Done">
@@ -238,20 +234,6 @@ body{
 
 <script>
 
-function readURL(input) {
-        if(input.files && input.files[0]) {
-           var reader = new FileReader();
-
-
-           reader.onload = function (e) {
-               $('#mia').attr('src', e.target.result);
-           }
-           reader.readAsDataURL(input.files[0]);
-       }
-   }
-   $("#dur").change(function(){
-       readURL(this);
-   });
 
 
 
