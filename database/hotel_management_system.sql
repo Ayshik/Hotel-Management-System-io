@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.1
+-- version 4.8.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 20, 2020 at 08:29 PM
--- Server version: 10.4.8-MariaDB
--- PHP Version: 7.1.33
+-- Generation Time: Sep 20, 2020 at 07:44 PM
+-- Server version: 10.1.34-MariaDB
+-- PHP Version: 7.2.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -45,6 +45,32 @@ INSERT INTO `login` (`user_name`, `password`, `user_type`) VALUES
 ('m', '$2y$10$N4ry3dZxNaZvcie9x2zW/OCEsR9BFG4Ki.f0Mdot7DrZBn2OF/0S2', 2),
 ('P', '$2y$10$1BtVzusR9b4qrJIFLC6YLulZSFFmt7xyCDxQhfs3.9O8ZiRPHTQQC', 3),
 ('pk', '$2y$10$WSW9/4Z0AjczX0lVjIbI8.Sg061JirUz8IMd3LlaPvnS1F23xDFkW', 4);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pre_booking`
+--
+
+CREATE TABLE `pre_booking` (
+  `serial` int(11) NOT NULL,
+  `user_Id` varchar(50) NOT NULL,
+  `room_number` varchar(15) NOT NULL,
+  `payment` int(6) NOT NULL,
+  `Totalcost` int(50) NOT NULL,
+  `Payment_due` int(10) DEFAULT NULL,
+  `check_in` varchar(12) DEFAULT NULL,
+  `check_out` varchar(12) DEFAULT NULL,
+  `pre_check_in` varchar(12) NOT NULL,
+  `pre_check_out` varchar(12) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `pre_booking`
+--
+
+INSERT INTO `pre_booking` (`serial`, `user_Id`, `room_number`, `payment`, `Totalcost`, `Payment_due`, `check_in`, `check_out`, `pre_check_in`, `pre_check_out`) VALUES
+(18, 'P', 'PF11', 500, 7500, 7000, '2020-02-14', '2020-02-17', '2020-02-14', '2020-02-17');
 
 -- --------------------------------------------------------
 
@@ -116,6 +142,13 @@ ALTER TABLE `login`
   ADD PRIMARY KEY (`user_name`);
 
 --
+-- Indexes for table `pre_booking`
+--
+ALTER TABLE `pre_booking`
+  ADD PRIMARY KEY (`serial`),
+  ADD UNIQUE KEY `room_number` (`room_number`);
+
+--
 -- Indexes for table `room_details`
 --
 ALTER TABLE `room_details`
@@ -132,6 +165,12 @@ ALTER TABLE `user`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `pre_booking`
+--
+ALTER TABLE `pre_booking`
+  MODIFY `serial` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `room_details`
