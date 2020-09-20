@@ -1,10 +1,68 @@
 <?php
 session_start();
+include "../database/db_connect.php";
 
+$class = $category = $check_in = $check_out = "";
 
 if(isset($_SESSION['user_name']))
 {
-    $user_name = $_SESSION['user_name'];
+    if($_SERVER["REQUEST_METHOD"] == "POST")
+	{
+		if(empty($_POST['class']))
+		{
+			$error_message = "class can not be empty";
+		}
+		else
+		{
+			$class = $_POST['class'];
+      $class=mysqli_real_escape_string($con,$class);
+		}
+
+		if(empty($_POST['category']))
+		{
+			$error_message = "Category can not be empty";
+		}
+		else
+		{
+			$category = $_POST['category'];
+			$category=mysqli_real_escape_string($con,$category);
+    }
+
+    if(empty($_POST['checkin']))
+    {
+
+    }
+    else
+    {
+        $check_in = $_POST['checkin'];
+    }
+
+    if(empty($_POST['checkout']))
+    {
+      
+    }
+    else
+    {
+        $check_out = $_POST['checkout'];
+        //validation for check the date
+    }
+
+    $sql = "SELECT * FROM room_details WHERE book_check_in not BETWEEN '$check_in' and '$check_out' AND book_check_out not BETWEEN '$check_in' and '$check_out' AND pre_check_in not BETWEEN '$check_in' and '$check_out' AND pre_check_out NOT BETWEEN '$check_in' and '$check_out' AND class = '$class' AND category = '$category' ";
+
+    $result = mysqli_query($con , $sql);
+    
+    $row = mysqli_num_rows($result);
+    
+    if($row>0)
+    {
+      header ("location:pre_booking_final.php");
+    }
+    else 
+    {
+      echo "ROOM NOT AVAILABLE";
+    }
+  }
+
 }
 else
 {
@@ -103,7 +161,7 @@ body{
         <div class="wrapper">
           <h2>Update Profile</h2>
           <div id="error_message"></div>
-<form name='update' method="POST" action="pre_booking_final.php">
+<form name='update' method="POST" action="<?php htmlspecialchars($_SERVER['PHP_SELF'])?>">
 
                  <div class="input_field">
             			<label for="Class">Select Class :</label>
@@ -120,7 +178,7 @@ body{
 
 				<div class="input_field">
             			<label for="Class">Select Catagory :</label>
-                  <select  name="class"><br><br>
+                  <select  name="category"><br><br>
 
                     <option value="Single" selected>Single</option>
                     <option value="Double" >Double</option>

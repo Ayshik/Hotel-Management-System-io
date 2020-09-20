@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 19, 2020 at 10:50 PM
+-- Generation Time: Sep 20, 2020 at 08:29 PM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.1.33
 
@@ -58,6 +58,10 @@ CREATE TABLE `room_details` (
   `category` varchar(30) NOT NULL,
   `room_number` varchar(15) NOT NULL,
   `price` int(6) NOT NULL,
+  `book_check_in` varchar(12) NOT NULL,
+  `book_check_out` varchar(12) NOT NULL,
+  `pre_check_in` varchar(12) NOT NULL,
+  `pre_check_out` varchar(12) NOT NULL,
   `status` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -65,16 +69,16 @@ CREATE TABLE `room_details` (
 -- Dumping data for table `room_details`
 --
 
-INSERT INTO `room_details` (`serial`, `class`, `category`, `room_number`, `price`, `status`) VALUES
-(9, 'Premium', 'Single', 'PS9', 1000, 'FREE'),
-(10, 'Premium', 'Double', 'PD10', 2000, 'FREE'),
-(11, 'Premium', 'Family', 'PF11', 2500, 'FREE'),
-(12, 'Economy', 'Single', 'ES12', 1500, 'FREE'),
-(13, 'Economy', 'Double', 'ED13', 2500, 'FREE'),
-(14, 'Economy', 'Family', 'EF14', 3000, 'FREE'),
-(15, 'Basic', 'Single', 'BS15', 1500, 'FREE'),
-(16, 'Basic', 'Double', 'BD16', 2000, 'FREE'),
-(17, 'Basic', 'Family', 'BF17', 2500, 'FREE');
+INSERT INTO `room_details` (`serial`, `class`, `category`, `room_number`, `price`, `book_check_in`, `book_check_out`, `pre_check_in`, `pre_check_out`, `status`) VALUES
+(9, 'Premium', 'Single', 'PS9', 1000, '2020-02-10', '2020-02-11', '', '', 'FREE'),
+(10, 'Premium', 'Double', 'PD10', 2000, '2020-02-10', '2020-02-11', '', '', 'FREE'),
+(11, 'Premium', 'Family', 'PF11', 2500, '2020-02-14', '2020-02-17', '2020-09-19', '2020-09-22', 'FREE'),
+(12, 'Economy', 'Single', 'ES12', 1500, '', '', '', '', 'FREE'),
+(13, 'Economy', 'Double', 'ED13', 2500, '', '', '', '', 'FREE'),
+(14, 'Economy', 'Family', 'EF14', 3000, '', '', '', '', 'FREE'),
+(15, 'Basic', 'Single', 'BS15', 1500, '', '', '', '', 'FREE'),
+(16, 'Basic', 'Double', 'BD16', 2000, '', '', '', '', 'FREE'),
+(17, 'Basic', 'Family', 'BF17', 2500, '', '', '', '', 'FREE');
 
 -- --------------------------------------------------------
 

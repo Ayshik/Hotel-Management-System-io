@@ -7,7 +7,6 @@ if($_SERVER['REQUEST_METHOD']=="POST")
     // if(!empty($_POST['name']) && !empty($_POST['pass']))
     if(!empty($_POST['pass']))
     {
-        // $name = $_POST['name'];
         $name=$_SESSION['user_name'];   
         $pass = $_POST['pass'];
         $name = mysqli_real_escape_string($con,$name);
@@ -23,6 +22,10 @@ if($_SERVER['REQUEST_METHOD']=="POST")
         if( ! password_verify($pass,$pass_db))
         {
             echo "PASSWORD DOESNOT MATCH";
+        }
+        else
+        {
+            echo " ";
         }
     }
 }

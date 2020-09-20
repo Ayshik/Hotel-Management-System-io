@@ -17,7 +17,7 @@
             <h3><a href="../home.html">OCEAN PARADISE</a></h3>
           </div>
           <div class="welcome">
-            <h1>Welcome Manager</h1>
+            <h1>Welcome OWNER</h1>
             <div class="rightmenu">
               <button id="buttonone" onclick="window.location.href='../logout.php';">
                 Logout
