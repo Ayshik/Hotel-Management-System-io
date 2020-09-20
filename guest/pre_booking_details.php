@@ -13,9 +13,12 @@ else{
 }
 
 include "../rss/Dheader&navbarfor_user.php";
+
 function prebokinginfo(){
-$uid=$_SESSION['user_name'];
-  $sql = "select * from pre_booking  where user_Id='$uid'";
+
+  global $con;
+      $uname = $_SESSION['user_name'];
+      $sql = "select * from pre_booking  where user_Id='$uname'";
       $result = mysqli_query($con,$sql);
       return $result;
 
@@ -87,7 +90,7 @@ $uid=$_SESSION['user_name'];
           <div class="icon-section">
 
 
-            <table id="table" border="1">
+            <table id="table" border='1'>
                     <thead>
                       <th>Sl.</th>
                         <th>Room No</th>
@@ -113,7 +116,7 @@ $uid=$_SESSION['user_name'];
                     echo "<td>".$infos["payment"]."</td>";
                       echo "<td>".$infos["Totalcost"]."</td>";
                               echo "<td>".$infos["Payment_due"]."</td>";
-                            echo "<td>".$infos["Pre_check_in"]."</td>";
+                            echo "<td>".$infos["pre_check_in"]."</td>";
                             echo "<td>".$infos["pre_check_out"]."</td>";
                   echo '<td><button class="btn"><a href="?id='.$infos["serial"].'" i class="fa fa-trash">  Remove</a></td>';
 
