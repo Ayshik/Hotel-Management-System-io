@@ -2,15 +2,51 @@
 session_start();
 include "../database/db_connect.php";
 
-$error_message = $class = $category = $room_number = $price = $sl = "";
+$error_message = $class = "";
+
 if(isset($_SESSION['user_name']))
 {
+  if($_SERVER['REQUEST_METHOD']== "POST")
+{
+    
+    $class = $_POST['class'];
 
+    $file_name = $_FILES['room_image'] ['name'];
+    $file_tmp_name = $_FILES['room_image'] ['tmp_name'];
+    $file_err = $_FILES['room_image'] ['error'];
+    $file_size = $_FILES['room_image'] ['size'];
+   
+    $file_name_ex = explode('.',$file_name);
+    $file_ext = $file_name_ex[1];
+    $file_ext=strtolower($file_ext);
+    if($file_err == 0)
+    {
+      if($file_ext == 'jpg' || $file_ext == 'jpeg' || $file_ext == 'png' )
+      {
+              if($file_size < 3000000) //3000000 ->3 mb
+              {
+                  $file_name_real = $class .'.'."jpg";
+                  $loc = '../css/image/'.$file_name_real;
+                  move_uploaded_file($file_tmp_name , $loc);
+              }
+              else
+              {
+                 $error_message = "file size large";
+              }
+      }
+      else
+      {
+        $error_message = "file is not a image type";
+      }
+    }
+    else
+    {
+      $error_message = "image  upload system is down!";
+    }
+    
 
-//write
-
-
-		}
+}
+}
 
 
 else{
@@ -114,7 +150,7 @@ body{
 <div class="cpic">
           <h2>Room Picturre Customize</h2>
             <div id="error_message" > <?php echo $error_message; ?> </div>
-              <form id="myform" method="post" action="" >
+              <form method="post" action="<?php htmlspecialchars($_SERVER['PHP_SELF'])?>" enctype ="multipart/form-data">
                 <div class="input_field">
             			<label for="Class">Select Class :</label>
                   <select  name="class"><br><br>
@@ -130,16 +166,17 @@ body{
 
 
 								<div class="input_field">
-                    <label for="pic">Picture :</label >
-                    <input type="file" id="dur" name="location">
 
-				</div>
+                    <label for="pic">Picture :</label >
+                    <input type="file" id="dur" name="room_image">
+
+				        </div>
 
 
 
 
                 <div class="btn">
-                    <input type="submit" name="insertreport" value="Done">
+                    <input type="submit" name="room_submit" value="Done">
                 </div>
 
 							</div>
