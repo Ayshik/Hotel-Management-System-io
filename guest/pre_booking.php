@@ -3,6 +3,7 @@ session_start();
 include "../database/db_connect.php";
 
 $class = $category = $check_in = $check_out = "";
+$available = 0;
 
 if(isset($_SESSION['user_name']))
 {
@@ -55,7 +56,8 @@ if(isset($_SESSION['user_name']))
     
     if($row>0)
     {
-      header ("location:pre_booking_final.php");
+      // header ("location:pre_booking_final.php");
+      $available = 1;
     }
     else 
     {
@@ -199,16 +201,34 @@ body{
                     <input type="date" id="out" name="checkout">
 
 				</div>
+    <?php if ($available == 0) {?>
+
     <div class="btn">
        <tr>
          <td colspan=2><input type="submit" name="btn_submit" value="Check" id='btn_submit'></td>
        </tr>
     </div>
+    <?php } ?>
+
+    <?php if ($available == 1) {?>
+      
+    <tr>
+          <td><p>Payment</p></td>
+        </tr>
+       <tr>
+         <td><input type="number" name="payment" id="tk" value="500"></td>
+    </tr>
+
+      <div class="btn">
+       <tr>
+         <td colspan=2><input type="submit" name="btn_submit" value="Book" id='btn_submit'></td>
+       </tr>
+      </div>
+    <?php } ?>
        
 	</div>
 
   
 </form>
 </body>
-<script src="../js/update_user.js"></script>
 </html>
