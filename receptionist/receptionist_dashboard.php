@@ -392,7 +392,7 @@ include "../rss/header_for_receptionist..php";
             <div class="face face2">
                 <div class="content">
                     <p>We Have <?php echo $pr ; ?> Unbooked Premium Rooms.</p>
-                        <a href="#">Book Now</a>
+                        <a href="booking.php">Book Now</a>
                 </div>
             </div>
         </div>
