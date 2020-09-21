@@ -22,7 +22,7 @@ function prebokinginfo(){
 
   global $con,$uname;
       
-      $sql = "select * from pre_booking  where user_Id='$uname'";
+      $sql = "select * from pre_booking  where user_name='$uname'";
       $result = mysqli_query($con,$sql);
       return $result;
 
