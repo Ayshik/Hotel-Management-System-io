@@ -39,10 +39,10 @@
         <a href="receptionist_dashboard.php"><i class="fas fa-qrcode"></i>Dashboard</a>
         </li>
         <li>
-          <a href="setting.php"><i class="fas fa-link"></i>Profile</a>
+          <a href="changepass.php"><i class="fas fa-link"></i>CHANGE PASSWORD</a>
         </li>
         <li>
-        <a href="prebook_request.php"><i class="fas fa-stream"></i>PREBOOK REQUESTS</a>
+        <a href="prebook_request.php"><i class="fas fa-stream"></i>PAYMENT & CHECKOUT</a>
         </li>
         <li>
         <a href="prebooked_all.php"><i class="fas fa-stream"></i>PREBOOKED </a>
@@ -51,17 +51,13 @@
         <a href="offline_book.php"><i class="fas fa-stream"></i>OFFLINE BOOKING</a>
         </li>
         <li>
-        <a href="booked_room.php"> <i class="fas fa-stream"></i>BOOKED ROOM</a>
+        <a href="booked_room.php"> <i class="fas fa-stream"></i>BOOKED ROOM INFO</a>
         </li>
         
         <li>
           
         <a href="chat_box.php"><i class="fas fa-stream"></i> CHAT BOX</a>
         </li>
-        <li>
-          <a href="report.php"
-            ><i class="fas fa-calendar-week"></i>FEEDBACK FROM CUSTOMER</a
-          >
-        </li>
+       
       </ul>
     </div>

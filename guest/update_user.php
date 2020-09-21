@@ -369,6 +369,11 @@ body{
        </tr>
     </div>
 </form>
+</div>
+</div>
+</div>
+</div>
+</section>
 </body>
 <script src="../js/update_user.js"></script>
 </html>
