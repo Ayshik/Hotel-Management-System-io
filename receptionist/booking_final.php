@@ -184,7 +184,7 @@ body{
                   <td><p>Total Cost</p></td>
                 </tr>
                <tr>
-                 <td><input type="number" name="tc" id="tk" value="Room price * (cout-cin)"></td>
+                 <td><input type="number" name="tc" id="tk" value=""></td>
                 </tr>
 
     		 <tr>

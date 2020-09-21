@@ -30,7 +30,7 @@ function bokinginfo(){
       $uname = $_SESSION['user_name'];
       //$sql = "select a.serial,a.room_number,a.price,a.pre_check_in,a.pre_check_out form room_details a,pre_booking b where a.room_number=b.room_number";
 
- $sql = "select * from room_details where status='Free'";
+ $sql = "select * from room_details";
       $result = mysqli_query($con,$sql);
       return $result;
 
@@ -51,6 +51,14 @@ $price=$_POST["price"];
   $_SESSION["cin"]=$cin;
   $_SESSION["cout"]=$cout;
   $_SESSION["price"]=$price;
+
+
+
+
+
+
+
+
 
 header("Location:booking_final.php");
 }
@@ -165,8 +173,7 @@ background-color: #45a049;
 <th style="color:black">Room No</th>
 
 <th style="color:black">Price</th>
-<th style="color:black">Pre Checkedin</th>
-<th style="color:black">Pre Checkedout</th>
+
 
 
 </tr>
@@ -180,9 +187,7 @@ background-color: #45a049;
     echo "<td>".$info["room_number"]."</td>";
 echo "<td>".$info["price"]."</td>";
 
-echo "<td>".$info["pre_check_in"]."</td>";
 
-        echo "<td>".$info["pre_check_out"]."</td>";
 
 
     echo "</tr>";
