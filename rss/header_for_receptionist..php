@@ -50,8 +50,13 @@
         <li>
         <a href="offline_book.php"><i class="fas fa-stream"></i>OFFLINE BOOKING</a>
         </li>
+		
+		<li>
+        <a href="booking.php"> <i class="fas fa-stream"></i>BOOK ROOM</a>
+        </li>
+		
         <li>
-        <a href="booked_room.php"> <i class="fas fa-stream"></i>BOOKED ROOM INFO</a>
+        <a href="bookinginfo.php"> <i class="fas fa-stream"></i>BOOKED ROOM INFO</a>
         </li>
         
         <li>
