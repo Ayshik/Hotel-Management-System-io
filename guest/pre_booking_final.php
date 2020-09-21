@@ -101,7 +101,7 @@ body{
       <div class="icon-section">
 
         <div class="wrapper">
-          <h2>Update Profile</h2>
+          <h2>Pre Booking</h2>
           <div id="error_message"></div>
 <form name='update' onsubmit="return validate();" method="POST" action="">
 
