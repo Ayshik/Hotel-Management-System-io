@@ -38,7 +38,7 @@ if(isset($_SESSION['user_name']))
 			$price=mysqli_real_escape_string($con,$price);
 		}
 
-		$sql = "insert into room_details(class,category,room_number,price,status) values ('$class' , '$category' , '0' , '$price' , 'FREE')";
+		$sql = "insert into room_details(class,category,room_number,price) values ('$class' , '$category' , '0' , '$price')";
 		if (mysqli_query($con, $sql))
 		{
 			$sql1 = "select serial from room_details where class = '$class' and category = '$category' and room_number = '0' and price = '$price' ";

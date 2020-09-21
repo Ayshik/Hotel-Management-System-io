@@ -2,7 +2,7 @@
 session_start();
 include "../database/db_connect.php";
 
-$class = $category = $check_in = $check_out = "";
+$class = $category = $check_in = $check_out = $total_cost =  $price = $error_message = $payment = "";
 $rn_booked = $room_available = [];
 $available = 0;
 
@@ -128,19 +128,56 @@ if(isset($_SESSION['user_name']))
       {
         array_push($room_available,$row['room_number']);
       }
+
       $available = 1;
+      $sql3 = "select price from room_details where room_number = '$room_available[0]' ";
+      $result3 = mysqli_query($con, $sql3);
+      while($row = mysqli_fetch_assoc($result3) )
+      {
+         $price = $row['price'];
+      }
+      $date1=date_create($check_in);
+      $date2=date_create($check_out);
+      $diff=date_diff($date1,$date2);
+      $total_days = $diff->format("%a");
+      
+      $total_cost = $total_days * $price ;
+      $payment = $total_cost/5;
+
+      $_SESSION['room'] = $room_available[0];
+      $_SESSION['payment'] = $payment;
+      $_SESSION['total_cost'] = $total_cost;
+      $_SESSION['pre_checkin'] = $check_in;
+      $_SESSION['pre_checkout'] = $check_out;
+
     }
     else
     {
-        echo "room not available";
+        $error_message = "room not available";
     }
-   print_r($room_available);
-//$room_available = [];      
   }
 
   if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['btn_book']))
   {
-        //insert details in prebook table 
+    //must unset this values
+    $room = $_SESSION['room'] ;
+    $payment = $_SESSION['payment'] ;
+    $total_cost = $_SESSION['total_cost'];
+    $payment_due = $total_cost - $payment ;
+    $pre_check_in = $_SESSION['pre_checkin'] ;
+    $pre_check_out = $_SESSION['pre_checkout'] ;
+
+
+    $uname = $_SESSION['user_name'];
+
+    $sql = "insert into pre_booking(user_name , room_number , payment , Totalcost , Payment_due , check_in , check_out , pre_check_in , pre_check_out) values('$uname' , '$room' ,'$payment' , '$total_cost' , '$payment_due' , 'N' , 'N' , '$pre_check_in','$pre_check_out') ";
+
+    if(mysqli_query($con,$sql)){
+    }
+    else{
+      echo "log in table Error: " . $sql. "<br>" . mysqli_error($con);
+    }
+  mysqli_close($con);
   }
 
 }
@@ -240,7 +277,7 @@ body{
 
         <div class="wrapper">
           <h2>Update Profile</h2>
-          <div id="error_message"></div>
+          <div id="error_message"><?php echo $error_message; ?></div>
 <form name='update' method="POST" action="<?php htmlspecialchars($_SERVER['PHP_SELF'])?>">
 
                  <div class="input_field">
@@ -290,11 +327,18 @@ body{
 
     <?php if ($available == 1) {?>
       
+      <tr>
+          <td><p>TOTAL COST</p></td>
+        </tr>
+       <tr>
+         <td><label> <?php echo $total_cost; ?> </label> </td>
+    </tr>
+
     <tr>
           <td><p>Payment</p></td>
         </tr>
        <tr>
-         <td><input type="number" name="payment" id="tk" value="500"></td>
+         <td><label><?php echo $payment; ?></label></td>
     </tr>
 
       <div class="btn">

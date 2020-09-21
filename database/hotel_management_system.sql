@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.2
+-- version 4.9.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 21, 2020 at 07:32 AM
--- Server version: 10.1.34-MariaDB
--- PHP Version: 7.2.7
+-- Generation Time: Sep 21, 2020 at 10:21 PM
+-- Server version: 10.4.8-MariaDB
+-- PHP Version: 7.1.33
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -65,6 +65,13 @@ CREATE TABLE `pre_booking` (
   `pre_check_out` varchar(12) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `pre_booking`
+--
+
+INSERT INTO `pre_booking` (`serial`, `user_name`, `room_number`, `payment`, `Totalcost`, `Payment_due`, `check_in`, `check_out`, `pre_check_in`, `pre_check_out`) VALUES
+(19, 's', 'PF13', 500, 8000, 7500, '', '', '2020-02-14', '2020-02-17');
+
 -- --------------------------------------------------------
 
 --
@@ -90,7 +97,7 @@ CREATE TABLE `room_booking` (
 --
 
 INSERT INTO `room_booking` (`serial`, `user_name`, `phone_no`, `nid_no`, `room_number`, `total_room_price`, `payment`, `payment_due`, `check_in`, `check_out`, `booked_by`) VALUES
-(1, 'A', 1775503498, '123456789', 'PF11', 2500, 500, 2000, '1-1-2020', '2-1-2020', 'm');
+(1, 'A', 1775503498, '123456789', 'PF12', 2500, 500, 2000, '2020-09-02', '2020-09-24', 'm');
 
 -- --------------------------------------------------------
 
@@ -103,28 +110,23 @@ CREATE TABLE `room_details` (
   `class` varchar(18) NOT NULL,
   `category` varchar(30) NOT NULL,
   `room_number` varchar(15) NOT NULL,
-  `price` int(6) NOT NULL,
-  `book_check_in` varchar(12) NOT NULL,
-  `book_check_out` varchar(12) NOT NULL,
-  `pre_check_in` varchar(12) NOT NULL,
-  `pre_check_out` varchar(12) NOT NULL,
-  `status` varchar(10) NOT NULL
+  `price` int(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `room_details`
 --
 
-INSERT INTO `room_details` (`serial`, `class`, `category`, `room_number`, `price`, `book_check_in`, `book_check_out`, `pre_check_in`, `pre_check_out`, `status`) VALUES
-(9, 'Premium', 'Single', 'PS9', 1000, '2020-02-10', '2020-02-11', '', '', 'FREE'),
-(10, 'Premium', 'Double', 'PD10', 2000, '2020-02-10', '2020-02-11', '', '', 'FREE'),
-(11, 'Premium', 'Family', 'PF11', 2500, '2020-02-14', '2020-02-17', '2020-09-19', '2020-09-22', 'FREE'),
-(12, 'Economy', 'Single', 'ES12', 1500, '', '', '', '', 'FREE'),
-(13, 'Economy', 'Double', 'ED13', 2500, '', '', '', '', 'FREE'),
-(14, 'Economy', 'Family', 'EF14', 3000, '', '', '', '', 'FREE'),
-(15, 'Basic', 'Single', 'BS15', 1500, '', '', '', '', 'FREE'),
-(16, 'Basic', 'Double', 'BD16', 2000, '', '', '', '', 'FREE'),
-(17, 'Basic', 'Family', 'BF17', 2500, '', '', '', '', 'FREE');
+INSERT INTO `room_details` (`serial`, `class`, `category`, `room_number`, `price`) VALUES
+(9, 'Premium', 'Single', 'PS9', 1000),
+(10, 'Premium', 'Double', 'PD10', 2000),
+(11, 'Premium', 'Family', 'PF12', 2500),
+(12, 'Economy', 'Single', 'ES12', 1500),
+(13, 'Economy', 'Double', 'ED13', 2500),
+(14, 'Economy', 'Family', 'EF14', 3000),
+(15, 'Basic', 'Single', 'BS15', 1500),
+(16, 'Basic', 'Double', 'BD16', 2000),
+(17, 'Basic', 'Family', 'BF17', 2500);
 
 -- --------------------------------------------------------
 
@@ -197,7 +199,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `pre_booking`
 --
 ALTER TABLE `pre_booking`
-  MODIFY `serial` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `serial` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `room_booking`
