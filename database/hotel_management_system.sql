@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 20, 2020 at 07:44 PM
+-- Generation Time: Sep 21, 2020 at 07:32 AM
 -- Server version: 10.1.34-MariaDB
 -- PHP Version: 7.2.7
 
@@ -54,7 +54,7 @@ INSERT INTO `login` (`user_name`, `password`, `user_type`) VALUES
 
 CREATE TABLE `pre_booking` (
   `serial` int(11) NOT NULL,
-  `user_Id` varchar(50) NOT NULL,
+  `user_name` varchar(50) NOT NULL,
   `room_number` varchar(15) NOT NULL,
   `payment` int(6) NOT NULL,
   `Totalcost` int(50) NOT NULL,
@@ -65,12 +65,32 @@ CREATE TABLE `pre_booking` (
   `pre_check_out` varchar(12) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+-- --------------------------------------------------------
+
 --
--- Dumping data for table `pre_booking`
+-- Table structure for table `room_booking`
 --
 
-INSERT INTO `pre_booking` (`serial`, `user_Id`, `room_number`, `payment`, `Totalcost`, `Payment_due`, `check_in`, `check_out`, `pre_check_in`, `pre_check_out`) VALUES
-(18, 'P', 'PF11', 500, 7500, 7000, '2020-02-14', '2020-02-17', '2020-02-14', '2020-02-17');
+CREATE TABLE `room_booking` (
+  `serial` int(11) NOT NULL,
+  `user_name` varchar(50) NOT NULL,
+  `phone_no` int(11) NOT NULL,
+  `nid_no` varchar(17) NOT NULL,
+  `room_number` varchar(15) NOT NULL,
+  `total_room_price` int(6) NOT NULL,
+  `payment` int(10) NOT NULL,
+  `payment_due` int(10) NOT NULL,
+  `check_in` varchar(12) NOT NULL,
+  `check_out` varchar(12) NOT NULL,
+  `booked_by` varchar(10) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `room_booking`
+--
+
+INSERT INTO `room_booking` (`serial`, `user_name`, `phone_no`, `nid_no`, `room_number`, `total_room_price`, `payment`, `payment_due`, `check_in`, `check_out`, `booked_by`) VALUES
+(1, 'A', 1775503498, '123456789', 'PF11', 2500, 500, 2000, '1-1-2020', '2-1-2020', 'm');
 
 -- --------------------------------------------------------
 
@@ -149,6 +169,13 @@ ALTER TABLE `pre_booking`
   ADD UNIQUE KEY `room_number` (`room_number`);
 
 --
+-- Indexes for table `room_booking`
+--
+ALTER TABLE `room_booking`
+  ADD PRIMARY KEY (`serial`),
+  ADD UNIQUE KEY `room_number` (`room_number`);
+
+--
 -- Indexes for table `room_details`
 --
 ALTER TABLE `room_details`
@@ -171,6 +198,12 @@ ALTER TABLE `user`
 --
 ALTER TABLE `pre_booking`
   MODIFY `serial` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+
+--
+-- AUTO_INCREMENT for table `room_booking`
+--
+ALTER TABLE `room_booking`
+  MODIFY `serial` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `room_details`
