@@ -108,6 +108,9 @@ function prebokinginfo(){
                    <th>Pre Checkin</th>
                    <th>Pre Checkout</th>
 
+                   <th>Checkin</th>
+                   <th>Checkout</th>
+
 
                      </thead>
 
@@ -118,7 +121,7 @@ function prebokinginfo(){
                          {
                            echo "<tr>";
                              echo "<td>".$infos["serial"]."</td>";
-                             echo "<td>".$infos["user_Id"]."</td>";
+                             echo "<td>".$infos["user_name"]."</td>";
 
                              echo "<td>".$infos["room_number"]."</td>";
                      echo "<td>".$infos["payment"]."</td>";
@@ -126,6 +129,9 @@ function prebokinginfo(){
                                echo "<td>".$infos["Payment_due"]."</td>";
                              echo "<td>".$infos["pre_check_in"]."</td>";
                              echo "<td>".$infos["pre_check_out"]."</td>";
+                             echo "<td>".$infos["check_in"]."</td>";
+                             echo "<td>".$infos["check_out"]."</td>";
+
 
                            echo "</tr>";
                          }

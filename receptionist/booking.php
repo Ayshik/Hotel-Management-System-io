@@ -140,7 +140,7 @@ background-color: #45a049;
                     <option value="Basic">Basic</option>
 
                   </select></h2><br>
-
+      
                 <center>  <h2 style="color:black;">Select Room Catagoty
                             <select  name="class"><br><br>
 
