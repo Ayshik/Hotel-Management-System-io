@@ -3,6 +3,7 @@ session_start();
 include "../database/db_connect.php";
 
 $class = $category = $check_in = $check_out = "";
+$rn_booked = $room_available = [];
 $available = 0;
 
 if(isset($_SESSION['user_name']))
@@ -48,7 +49,13 @@ if(isset($_SESSION['user_name']))
         //validation for check the date
     }
 
-    $sql = "SELECT * FROM room_details WHERE book_check_in not BETWEEN '$check_in' and '$check_out' AND book_check_out not BETWEEN '$check_in' and '$check_out' AND pre_check_in not BETWEEN '$check_in' and '$check_out' AND pre_check_out NOT BETWEEN '$check_in' and '$check_out' AND class = '$class' AND category = '$category' ";
+    // $sql = "SELECT * FROM room_details WHERE book_check_in not BETWEEN '$check_in' and '$check_out' AND book_check_out not BETWEEN '$check_in' and '$check_out' AND pre_check_in not BETWEEN '$check_in' and '$check_out' AND pre_check_out NOT BETWEEN '$check_in' and '$check_out' AND class = '$class' AND category = '$category' ";
+    
+    $i=0;
+
+    // $sql = "SELECT room_number FROM pre_booking WHERE pre_check_in  BETWEEN '$check_in' and '$check_out' OR pre_check_out  BETWEEN '$check_in' and '$check_out' ";
+    
+    $sql= "SELECT * FROM pre_booking";
 
     $result = mysqli_query($con , $sql);
     
@@ -56,13 +63,86 @@ if(isset($_SESSION['user_name']))
     
     if($row>0)
     {
-      // header ("location:pre_booking_final.php");
+      while($row = mysqli_fetch_assoc($result))
+      {
+        $d1 = $row['pre_check_in'];
+        $d2 = $row['pre_check_out'];
+
+        $check_in_input = date('Y-m-d', strtotime($check_in));
+        $check_out_input = date('Y-m-d', strtotime($check_out));
+        $startDate = date('Y-m-d', strtotime($d1));
+        $endDate = date('Y-m-d', strtotime($d2));
+
+        if (($check_in_input >= $startDate) && ($check_in_input <= $endDate) ||  ($check_out_input >= $startDate) && ($check_out_input <= $endDate))
+        {
+          $rn_booked[$i] = $row["room_number"]; 
+          $i++;
+        }
+        elseif(($startDate>= $check_in_input) && ($startDate <= $check_out_input) ||  ($endDate >= $check_in_input) && ($endDate <= $check_out_input))
+        {
+          $rn_booked[$i] = $row["room_number"]; 
+          $i++;
+        }
+    
+      }
+    }
+
+    $sql1 = "SELECT * FROM room_booking";
+
+    $result1 = mysqli_query($con , $sql1);
+    
+    $row = mysqli_num_rows($result1);
+    
+    if($row>0)
+    {
+      while($row = mysqli_fetch_assoc($result1))
+      {
+        $d1 = $row['check_in'];
+        $d2 = $row['check_out'];
+
+        $check_in_input = date('Y-m-d', strtotime($check_in));
+        $check_out_input = date('Y-m-d', strtotime($check_out));
+        $startDate = date('Y-m-d', strtotime($d1));
+        $endDate = date('Y-m-d', strtotime($d2));
+
+        if (($check_in_input >= $startDate) && ($check_in_input <= $endDate) ||  ($check_out_input >= $startDate) && ($check_out_input <= $endDate))
+        {
+          $rn_booked[$i] = $row["room_number"]; 
+          $i++; 
+        }
+        elseif(($startDate>= $check_in_input) && ($startDate <= $check_out_input) ||  ($endDate >= $check_in_input) && ($endDate <= $check_out_input))
+        {
+          $rn_booked[$i] = $row["room_number"]; 
+          $i++;
+        }
+      }
+    }
+
+    $rn_booked = array_unique($rn_booked);
+
+    $rn = implode(',',$rn_booked);
+
+    $sql2 = "SELECT * FROM room_details WHERE  room_number NOT IN ('$rn') AND class = '$class' AND category= '$category' ";
+    
+    $result2 = mysqli_query($con , $sql2);
+    
+    $row = mysqli_num_rows($result2);
+
+    if($row>0)
+    {
+      while($row = mysqli_fetch_assoc($result2))
+      {
+        array_push($room_available,$row['room_number']);
+      }
       $available = 1;
     }
-    else 
+    else
     {
-      echo "ROOM NOT AVAILABLE";
+        echo "room not available";
     }
+   print_r($room_available);
+//$room_available = [];
+        
   }
 
 }
