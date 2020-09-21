@@ -3,7 +3,7 @@ include "../database/db_connect.php";
 session_start();
 if(isset($_SESSION['user_name']))
 {
-   if($query="SELECT count(serial) AS total FROM room_details WHERE class='Premium' and status='Free'"){
+   if($query="SELECT count(serial) AS total FROM room_details WHERE class='Premium' "){
   $result=mysqli_query($con,$query);
   $values=mysqli_fetch_assoc($result);
   $pr=$values["total"];
@@ -17,7 +17,7 @@ if(isset($_SESSION['user_name']))
 }
 
 
-if($query="SELECT count(serial) AS total FROM room_details WHERE class='Economy' and status='Free'"){
+if($query="SELECT count(serial) AS total FROM room_details WHERE class='Economy' "){
   $result=mysqli_query($con,$query);
   $values=mysqli_fetch_assoc($result);
   $er=$values["total"];
@@ -33,7 +33,7 @@ if($query="SELECT count(serial) AS total FROM room_details WHERE class='Economy'
 
 
 
-if($query="SELECT count(serial) AS total FROM room_details WHERE class='Basic' and status='Free'"){
+if($query="SELECT count(serial) AS total FROM room_details WHERE class='Basic' "){
   $result=mysqli_query($con,$query);
   $values=mysqli_fetch_assoc($result);
   $br=$values["total"];
