@@ -1,14 +1,35 @@
 <?php
-
-
-include "../rss/header_for_receptionist..php";
 session_start();
+include "../database/db_connect.php";
+include "../rss/header_for_receptionist..php";
 
+$room = $check_in = $check_out = $error_message = "";
+$price = 0;
 if(isset($_SESSION['user_name']))
 {
+  $room = $_SESSION['room'];
+  $rn = mysqli_escape_string($con,$room);
+  $sql = "select price from room_details where room_number = ' $rn '";
+  $r = mysqli_query($con , $sql );
+  while($row = mysqli_fetch_assoc($r) )
+  {
+    $price = $row["price"];
+    echo $price;
+  }
+  $check_in = $_SESSION['pre_checkin'];
+  $check_out = $_SESSION['pre_checkout'];
 
+  $date1=date_create($check_in);
+  $date2=date_create($check_out);
+  $diff=date_diff($date1,$date2);
+  $total_days = $diff->format("%a"); 
+  $total_cost = $total_days * $price ;
+ //session unset kor laghbe 
+ 
+ if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['btn_submit']))
+ {
 
-
+ }
 }
 else{
 
@@ -124,7 +145,7 @@ body{
 
 
               <label for="Name">Room No:</label >
-                <td><input type="text" name="roomno" placeholder='' value="<?php echo $_SESSION["roomno"];?>"></td>
+                <td><input type="text" name="roomno" placeholder='' value="<?php echo $room;?>"></td>
 
 
 
@@ -141,7 +162,7 @@ body{
               <td><p>Room Price</p></td>
             </tr>
             <tr>
-              <td><input type="email" name="roomp" placeholder='Room price' value="<?php echo $_SESSION["price"];?>"></td>
+              <td><input type='text' value = "<?php echo $price ;?>"> </td>
             </tr>
 
 
@@ -170,7 +191,7 @@ body{
             </tr>
            <tr>
              <td>
-               <input type="text" placeholder='Check in time'value="<?php echo $_SESSION["cin"];?>" name="cin"></td>
+               <input type="text" placeholder='Check in time'value="<?php echo $check_in;?>" name="cin"></td>
             </tr>
 
             <tr>
@@ -178,13 +199,13 @@ body{
              </tr>
             <tr>
               <td>
-                <input type="text" placeholder='Check out time'value="<?php echo $_SESSION["cout"];?>" name="cout"></td>
+                <input type="text" placeholder='Check out time'value="<?php echo $check_out;?>" name="cout"></td>
              </tr>
              <tr>
                   <td><p>Total Cost</p></td>
                 </tr>
                <tr>
-                 <td><input type="number" name="tc" id="tk" value=""></td>
+                 <td><input type="number" name="tc" id="tk" value="<?php echo $total_cost;?>"></td>
                 </tr>
 
     		 <tr>

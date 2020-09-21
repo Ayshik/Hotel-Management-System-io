@@ -114,9 +114,7 @@ if(isset($_SESSION['user_name']))
 
     $rn_booked = array_unique($rn_booked);
 
-    $rn = implode(',',$rn_booked);
-
-    $sql2 = "SELECT * FROM room_details WHERE  room_number NOT IN ('$rn') AND class = '$class' AND category= '$category' ";
+    $sql2 = "SELECT * FROM room_details WHERE class= '$class' AND category ='$category'";
     
     $result2 = mysqli_query($con , $sql2);
     
@@ -128,6 +126,14 @@ if(isset($_SESSION['user_name']))
       {
         array_push($room_available,$row['room_number']);
       }
+
+      for($i=0;$i<count($rn_booked);$i++)
+      {
+        $index = array_search($rn_booked[$i],$room_available,true);
+        unset($room_available[$index]);
+      }
+      $room_available = array_values ($room_available);
+      print_r($room_available);
 
       $available = 1;
       $sql3 = "select price from room_details where room_number = '$room_available[0]' ";
@@ -181,7 +187,12 @@ if(isset($_SESSION['user_name']))
       echo "log in table Error: " . $sql. "<br>" . mysqli_error($con);
     }
     mysqli_close($con);
-    
+    unset($_SESSION['room'] );
+    unset($_SESSION['payment'] );
+    unset($_SESSION['total_cost'] );
+    unset($_SESSION['pre_checkin'] );
+    unset($_SESSION['pre_checkout'] );
+
   }
 
 }
