@@ -15,10 +15,10 @@
     />
     <link rel="stylesheet" type="text/css" href="css/login.css" />
     <link rel="stylesheet" type="text/css" href="css/registration.css" />
-    
+    <link rel="stylesheet" href="css/team.css">
   </head>
   <body>
-
+<header>
       <div class="menu">
         <div class="leftmenu">
           <h3><a href="index.php">
@@ -32,13 +32,14 @@
         <div class="rightmenu">
           <ul>
             <li><a href="index.php">HOME</a></li>
-            <li><a href="">Services</a></li>
-            <li><a href="">Nuru massage</a></li>
+            <li><a href="ourservices.php">Services</a></li>
+            <li><a href="gellery.php">Gallery</a></li>
 
-            <li><a href="aboutus.html">About Us</a></li>
+            <li><a href="aboutus.php">About Us</a></li>
             <li>
-              <a href="contact.html">Contact</a>
+              <a href="contact.php">Contact</a>
             </li>
           </ul>
         </div>
       </div>
+	  </header>
