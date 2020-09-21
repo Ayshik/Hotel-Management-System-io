@@ -8,7 +8,7 @@ $available = 0;
 
 if(isset($_SESSION['user_name']))
 {
-    if($_SERVER["REQUEST_METHOD"] == "POST")
+    if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['btn_check']))
 	{
 		if(empty($_POST['class']))
 		{
@@ -48,17 +48,11 @@ if(isset($_SESSION['user_name']))
         $check_out = $_POST['checkout'];
         //validation for check the date
     }
-
-    // $sql = "SELECT * FROM room_details WHERE book_check_in not BETWEEN '$check_in' and '$check_out' AND book_check_out not BETWEEN '$check_in' and '$check_out' AND pre_check_in not BETWEEN '$check_in' and '$check_out' AND pre_check_out NOT BETWEEN '$check_in' and '$check_out' AND class = '$class' AND category = '$category' ";
-    
+  
     $i=0;
 
-    // $sql = "SELECT room_number FROM pre_booking WHERE pre_check_in  BETWEEN '$check_in' and '$check_out' OR pre_check_out  BETWEEN '$check_in' and '$check_out' ";
-    
     $sql= "SELECT * FROM pre_booking";
-
     $result = mysqli_query($con , $sql);
-    
     $row = mysqli_num_rows($result);
     
     if($row>0)
@@ -141,8 +135,12 @@ if(isset($_SESSION['user_name']))
         echo "room not available";
     }
    print_r($room_available);
-//$room_available = [];
-        
+//$room_available = [];      
+  }
+
+  if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['btn_book']))
+  {
+        //insert details in prebook table 
   }
 
 }
@@ -285,7 +283,7 @@ body{
 
     <div class="btn">
        <tr>
-         <td colspan=2><input type="submit" name="btn_submit" value="Check" id='btn_submit'></td>
+         <td colspan=2><input type="submit" name="btn_check" value="Check" id='btn_submit'></td>
        </tr>
     </div>
     <?php } ?>
@@ -301,7 +299,7 @@ body{
 
       <div class="btn">
        <tr>
-         <td colspan=2><input type="submit" name="btn_submit" value="Book" id='btn_submit'></td>
+         <td colspan=2><input type="submit" name="btn_book" value="Book" id='btn_submit'></td>
        </tr>
       </div>
     <?php } ?>
