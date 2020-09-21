@@ -9,6 +9,13 @@ if(isset($_SESSION['user_name']))
 
   $info=bokinginfo();
 
+  if(isset($_POST["passingid"]))
+  {
+  transferinfo();
+  }
+
+
+
 }
 else{
 
@@ -31,7 +38,23 @@ function bokinginfo(){
 
 }
 
+function transferinfo()
+{
+if(isset($_POST["roomno"])){
 
+$roomno=$_POST["roomno"];
+$cin=$_POST["cin"];
+$cout=$_POST["cout"];
+$price=$_POST["price"];
+
+  $_SESSION["roomno"]=$roomno;
+  $_SESSION["cin"]=$cin;
+  $_SESSION["cout"]=$cout;
+  $_SESSION["price"]=$price;
+
+header("Location:booking_final.php");
+}
+}
 ?>
 
 
@@ -101,8 +124,31 @@ background-color: #45a049;
       <div class="icon-section">
       <form  method="post" action="" enctype="multipart/form-data">
         <div class="container">
-        <center><h2 style="color:white">Room No</h2><input type="text" name="fnamee" id="fname" placeholder="please select a Room" required ><br><br></center>
-        <input type="hidden" name="sl" id="no">
+      <center>  <h2 style="color:black;">Select Class
+                  <select  name="class"><br><br>
+
+                    <option value="Premium" selected>Premium</option>
+                    <option value="Economy" >Economy</option>
+                    <option value="Basic">Basic</option>
+
+                  </select></h2><br>
+
+                <center>  <h2 style="color:black;">Select Room Catagoty
+                            <select  name="class"><br><br>
+
+                              <option value="Single" selected>Single</option>
+                              <option value="Double" >Double</option>
+                              <option value="Family">Family</option>
+
+                            </select></h2><br>
+
+                            <center><h2 style="color:black">Check in :<input type="date" name="cin" id="cin" placeholder="please select a Room" >
+                            <>||<> <style="color:black">Check out :<input type="date" name="cout" id="cout" placeholder="please select a Room" ></h2></center><br>
+                            <div class="row">
+                              <input type="submit" name="passingid" value="Check">
+                            </div><br><br><br>
+        <center><h2 style="color:white">Room No</h2><input type="text" name="roomno" id="fname" placeholder="please select a Room" required ><br><br></center>
+        <input type="hidden" name="price" id="no">
 
           <div class="row">
             <input type="submit" name="passingid" value="Next">
@@ -168,7 +214,7 @@ echo "<td>".$info["pre_check_in"]."</td>";
                    {
 
                         document.getElementById("fname").value = this.cells[1].innerHTML;
-												document.getElementById("no").value = this.cells[0].innerHTML;
+												document.getElementById("no").value = this.cells[2].innerHTML;
 
                    };
                }
