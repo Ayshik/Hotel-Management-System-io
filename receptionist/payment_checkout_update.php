@@ -165,7 +165,7 @@ body{
     <div class="dashbord">
       <div class="icon-section">
         <div class="wrapper">
-              <h2>Booking</h2>
+              <h2>PAYMENT && CHECKOUT UPDATE</h2>
               <div id="error_message"></div>
     <form name='update'  method="POST" action="">
 
