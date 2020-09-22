@@ -100,7 +100,7 @@ function reports(){
 
             <center> <table id="table" border='1'>
                      <thead>
-                       <th>sl.</th>
+                      
                        <th>User Name</th>
                        <th>Subject</th>
                        <th>Massage</th>
@@ -117,7 +117,7 @@ function reports(){
                        foreach($info as $infos)
                          {
                            echo "<tr>";
-                             echo "<td>".$infos["sl"]."</td>";
+                           
                              echo "<td>".$infos["name"]."</td>";
 
 

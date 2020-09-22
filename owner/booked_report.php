@@ -159,7 +159,6 @@ background-color: #45a049;
              echo "<td>".$info["user_name"]."</td>";
              echo "<td>".$info["room_number"]."</td>";
 
-             //echo "<td>".$info["Totalcost"]."</td>";
              echo "<td>".$info["total_room_price"]."</td>";
 
 
