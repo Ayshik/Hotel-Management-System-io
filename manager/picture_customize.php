@@ -456,12 +456,23 @@ body{
 
 
                 <div class="input_field">
-                  <label for="Class"style="color:black">Select Class :</label>
+                  <label for="Class"style="color:black">Select Index :</label>
                   <select  name="class"><br><br>
 
-                    <option value="Premium" selected>Premium</option>
-                    <option value="Economy" >Economy</option>
-                    <option value="Basic">Basic</option>
+                    <option value="1" selected>1</option>
+                    <option value="2" >2</option>
+                    <option value="3">3</option>
+					 
+                    <option value="4">4</option>
+					<option value="5">5</option>
+					<option value="6">6</option>
+                    <option value="7">7</option>
+					 <option value="8">8</option>
+                    <option value="9">9</option>
+					 <option value="10">10</option>
+                    <option value="11">11</option>
+					 <option value="12">12</option>
+                   
 
                   </select>
 
