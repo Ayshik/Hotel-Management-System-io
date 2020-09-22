@@ -44,6 +44,9 @@
         <li>
         <a href="payment_checkout_update.php"><i class="fas fa-stream"></i>PAYMENT & CHECKOUT</a>
         </li>
+		<li>
+        <a href="prebook_checkin.php"><i class="fas fa-stream"></i>PREBOOK CHECKIN</a>
+        </li>
         <li>
         <a href="prebooked_all.php"><i class="fas fa-stream"></i>PREBOOKED INFO</a>
         </li>
