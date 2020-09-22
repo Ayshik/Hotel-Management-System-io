@@ -18,17 +18,6 @@ else{
 
 
 
-function bokinginfo(){
-     global $con;
-
-      $sql = "select * from room_booking";
-      $result = mysqli_query($con,$sql);
-      return mysqli_fetch_asscoc($result);
-
-
-
-}
-
 ?>
 <style>
   table {
@@ -117,7 +106,7 @@ function bokinginfo(){
                      <tbody>
                        <?php
 
-                         $sql = "select * from room_booking";
+                         $sql = "select * from room_booking where status ='New'";
                          $result = mysqli_query($con,$sql);
                          
                          while($infos = mysqli_fetch_assoc($result))

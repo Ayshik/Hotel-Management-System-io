@@ -112,6 +112,16 @@ if(isset($_SESSION['user_name']))
       $basic = count($room_available);
       $room_available = [];      
     }
+
+    $sqlnew = "update room_booking set status='Old' where check_out='$local' ";
+    if(mysqli_query($con , $sqlnew))
+    {
+
+    }
+    else
+    {
+        echo "erro while updating checkout".mysqli_error($con);
+    }
 }
 else{
     header("Location: ../login.php");
