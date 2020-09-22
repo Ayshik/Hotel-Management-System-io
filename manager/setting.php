@@ -90,7 +90,7 @@ include('../rss/Dheader&navbarfor_manager.php');
   padding: 0;
   box-sizing: border-box;
   outline: none;
-  color: black;
+  
   font-family: 'Josefin Sans', sans-serif;
       font-weight: bold;
 }
@@ -170,7 +170,7 @@ body{
 
 <section>
   <div class="main-section">
-    <div class="dashbord">
+    
      
 
         <div class="wrapper">
@@ -212,7 +212,7 @@ body{
     </div>
 </form>
 </div>
-</div>
+
 </div>
 
 </section>

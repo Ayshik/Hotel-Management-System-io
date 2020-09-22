@@ -18,7 +18,7 @@ else{
     header("Location: ../login.php");
 }
 
-include('../rss/Dheader&navbarfor_manager.php');
+include('../rss/header_for_owner.php');
 
 
 
@@ -83,17 +83,17 @@ padding: 84px;
 }
 #pre {
   background-color: #4CAF50;
-      color: white;
-      padding: 12px 20px;
-      border: none;
-      margin-left: 20px;
-      margin-left: 39%;
-      margin-top: 80px;
-      border-radius: 11px;
-      cursor: pointer;
-      font-size: xxx-large;
-      /* float: right; */
-      margin-right: 47%;
+    color: white;
+    padding: 11px 20px;
+    border: none;
+    margin-left: 20px;
+    margin-left: 39%;
+    margin-top: 80px;
+    border-radius: 11px;
+    cursor: pointer;
+    font-size: xxx-large;
+    /* float: right; */
+    margin-right: 47%;
 }
 
 #pre:hover {

@@ -166,7 +166,7 @@ body{
 
 <section>
   <div class="main-section">
-    <div class="dashbord">
+    
       <div class="icon-section">
 
         <div class="wrapper">
@@ -210,7 +210,7 @@ body{
 </div>
 </div>
 </div>
-</div>
+
 </section>
 </body>
 <script src ="../js/update_user.js"> </script>

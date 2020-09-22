@@ -97,7 +97,7 @@ include('../rss/Dheader&navbarfor_manager.php');
 <style>
 *{
   margin: 0px;
-  color: black;
+  
   padding: 0;
   box-sizing: border-box;
   outline: none;
@@ -180,7 +180,7 @@ body{
 
 <section>
   <div class="main-section">
-    <div class="dashbord">
+    
       
 
         <div class="wrapper">
@@ -241,7 +241,7 @@ body{
 </div>
 
 </form>
-</div>
+
 </div>
 </div>
 
