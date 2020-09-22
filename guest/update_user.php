@@ -291,7 +291,7 @@ body{
           <td><p>USERNAME</p></td>
         </tr>
         <tr>
-              <td><input type="text" name="uname" id="uname" placeholder='USERNAME' value="<?php echo $uname;?>"></td>
+              <td><input type="text" name="uname" id="uname" placeholder='USERNAME' value="<?php echo $_SESSION['user_name'];?>"readonly></td>
         </tr>
         <tr>
               <td id="uname_err"><?php echo $uname_err;?></td>
