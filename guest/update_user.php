@@ -16,13 +16,11 @@ if(isset($_SESSION['user_name']))
     {
         $name  = $row['name'];
         $email = $row['email'];
-        $uname = $row['user_name'];
         $nid = $row['national_id'];
         $phone = $row['phone'];
         $address = $row['address'];
         $old_pass_db= $row['password'];
     }
-    $uname_db = $uname;
 
 if($_SERVER["REQUEST_METHOD"]=="POST")
 {
@@ -41,24 +39,24 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
         }else{
           $email=validate($_POST['Email']);
         }
-        if(empty($_POST['uname']))
-        {
-            $uname_err = "USERNAME CAN NOT BE EMPTY";
-        }else{
-          $uname=validate($_POST['uname']);
-          $uname = strtoupper($uname);
+        // if(empty($_POST['uname']))
+        // {
+        //     $uname_err = "USERNAME CAN NOT BE EMPTY";
+        // }else{
+        //   $uname=validate($_POST['uname']);
+        //   $uname = strtoupper($uname);
 
 
-          $name=mysqli_real_escape_string($con,$uname);
-          $sql="select * from login where user_name='$uname'";
-          $result=mysqli_query($con,$sql);
-          $row = mysqli_num_rows($result);
+          // $name=mysqli_real_escape_string($con,$uname);
+          // $sql="select * from login where user_name='$uname'";
+          // $result=mysqli_query($con,$sql);
+          // $row = mysqli_num_rows($result);
 
-          if($row>0)
-          {
-            $uname_err = "USERNAME ALREADY EXISTS";
-          }
-        }
+          // if($row>0)
+          // {
+          //   $uname_err = "USERNAME ALREADY EXISTS";
+          // }
+        // }
         if(empty($_POST['pass']))
         {
             $pass_err="PASSWORD CAN NOT BE EMPTY";
@@ -102,26 +100,24 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
         }
         else
         {
-          // js validation counting
-          if( empty($uname_err) && empty($old_pass_err) )
-          {
+        
             if(!password_verify($pass,$old_pass_db))
             {
-                //update query
+               
                 $name=mysqli_real_escape_string($con,$name);
                 $pass=mysqli_real_escape_string($con,$pass);
                 $email=mysqli_real_escape_string($con,$email);
+                $uname = $_SESSION['user_name'];
                 $uname=mysqli_real_escape_string($con,$uname);
                 $nid=mysqli_real_escape_string($con,$nid);
                 $phone=mysqli_real_escape_string($con,$phone);
                 $address=mysqli_real_escape_string($con,$address);
 
                 $hash_pass=password_hash($pass,PASSWORD_DEFAULT);
+                   
+               
 
-
-                echo $uname_db;
-
-                $sql="update user set name='$name' , user_name='$uname' , email = '$email' , password = '$hash_pass' , phone = '$phone' , address = '$address' where user_name = '$uname_db' ";
+                $sql="update user set name='$name' ,  email = '$email' , password = '$hash_pass' , phone = '$phone' , address = '$address' where user_name = '$uname' ";
 
                 if(mysqli_query($con,$sql))
                 {
@@ -138,11 +134,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
             {
                 $pass_err="OLD AND NEW PASSWORD CAN NOT BE SAME";
             }
-        }
-        else
-        {
-            // error message
-        }
+        
       }
 
     }
@@ -162,9 +154,12 @@ function validate($data)
 }
 function update_login()
 {
-    global $uname_db , $uname , $hash_pass , $con;
+    global  $hash_pass , $con;
 
-    $sql = "update login set user_name = '$uname' , password = '$hash_pass' where user_name = '$uname_db' ";
+    $uname = $_SESSION['user_name'];
+    $uname=mysqli_real_escape_string($con,$uname);
+
+    $sql = "update login set  password = '$hash_pass' where user_name = '$uname' ";
         if(mysqli_query($con,$sql))
         {
 
