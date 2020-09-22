@@ -135,8 +135,8 @@ if(isset($_SESSION['user_name']))
           $room = $_POST['room_number'];
           $rn = mysqli_escape_string($con,$room);
           $_SESSION['room'] = $rn; 
-		  $price = $_POST['price'];
-		  $_SESSION['price'] = $price; 
+		      $price = $_POST['price'];
+		      $_SESSION['price'] = $price; 
 		  
           header("location:booking_final.php");
         }

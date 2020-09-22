@@ -8,18 +8,9 @@ $price = 0;
 if(isset($_SESSION['user_name']))
 {
   $room = $_SESSION['room'];
-  $rn = mysqli_escape_string($con,$room);
-  $sql = "select price from room_details where room_number = ' $rn '";
-  $r = mysqli_query($con , $sql );
-  while($row = mysqli_fetch_assoc($r) )
-  {
-    //$price = $row["price"];
-    //echo $price;
-	//voda ato pachas ken jinish
-  }
   $check_in = $_SESSION['pre_checkin'];
   $check_out = $_SESSION['pre_checkout'];
-$price=$_SESSION['price'];
+  $price=$_SESSION['price'];
   $date1=date_create($check_in);
   $date2=date_create($check_out);
   $diff=date_diff($date1,$date2);
