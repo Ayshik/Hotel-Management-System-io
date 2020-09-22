@@ -329,9 +329,11 @@ else
        
        // $total_cost = $total_days * $price ;
        // $payment = $total_cost/5;
-
+			
       $_SESSION['pre_checkin'] = $check_in;
       $_SESSION['pre_checkout'] = $check_out;
+	  
+	 
 	  
 
     }

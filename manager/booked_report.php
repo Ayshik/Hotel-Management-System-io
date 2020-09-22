@@ -4,14 +4,10 @@ include "../database/db_connect.php";
 if(isset($_SESSION['user_name']))
 {
 
-  if(isset($_POST["prebooking"]))
-  {
-header("Location:prebooked_report.php");
-  }
-else if(isset($_POST["booking"]))
-  {
-header("Location:booked_report.php");
-  }
+
+
+$info=bokinginfo();
+
 
 }
 else{
@@ -22,6 +18,17 @@ include('../rss/Dheader&navbarfor_manager.php');
 
 
 
+
+
+      function bokinginfo(){
+
+        global $con;
+            $uname = $_SESSION['user_name'];
+            $sql = "select * from room_booking";
+            $result = mysqli_query($con,$sql);
+            return $result;
+
+}
 
 
 
@@ -82,18 +89,14 @@ border-radius: 5px;
 padding: 84px;
 }
 #pre {
-  background-color: #4CAF50;
-      color: white;
-      padding: 12px 20px;
-      border: none;
-      margin-left: 20px;
-      margin-left: 39%;
-      margin-top: 80px;
-      border-radius: 11px;
-      cursor: pointer;
-      font-size: xxx-large;
-      /* float: right; */
-      margin-right: 47%;
+background-color: #4CAF50;
+color: white;
+padding: 12px 20px;
+border: none;
+border-radius: 11px;
+cursor: pointer;
+float: right;
+margin-right: 47%;
 }
 
 #pre:hover {
@@ -102,19 +105,16 @@ background-color: #45a049;
 
 #boo {
   background-color: #4CAF50;
-    color: white;
-    padding: 13px 44px;
-    font-size: -webkit-xxx-large;
-    border: none;
-    border-radius: 11px;
-    margin-left: 10px;
-    cursor: pointer;
-    /* padding-top: 10px; */
-    float: right;
-    margin-top: 28px;
-    margin-right: 38%;
+      color: white;
+      padding: 12px  25px;
+      border: none;
+      border-radius: 11px;
+      cursor: pointer;
+      /* padding-top: 10px; */
+      float: right;
+      margin-top: 10px;
+      margin-right: 47%;
 }
-
 
 #boo:hover {
 background-color: #45a049;
@@ -129,22 +129,49 @@ background-color: #45a049;
 
              <form  method="post" action="" enctype="multipart/form-data">
                <div class="container">
-               <center><h2 style="color:white">Prebooked & Booking Report</h2><br><br></center>
+               <center><h2 style="color:white">Booking Report</h2><br><br></center>
                <input type="hidden" name="sl" id="no">
 
-                 <div class="row">
-                   <input id="pre" type="submit" name="prebooking" value="Prebooke">
-                 </div>
 
-                <div class="row">
-                   <input id="boo" type="submit" name="booking" value="Booked">
-                 </div><br><br>
 
                </div>
 
 
 
+             <center><table id="myTable">
+             <tr class="header">
 
+             <th style="color:black">User Name </th>
+             <th style="color:black">Room Number</th>
+
+             <th style="color:black">Earnings</th>
+
+
+
+             </tr>
+             <tbody>
+             <?php
+             foreach($info as $info)
+             {
+             echo "<tr>";
+
+
+             echo "<td>".$info["user_name"]."</td>";
+             echo "<td>".$info["room_number"]."</td>";
+
+             //echo "<td>".$info["Totalcost"]."</td>";
+             echo "<td>".$info["total_room_price"]."</td>";
+
+
+
+
+             echo "</tr>";
+             }
+             ?>
+
+             </tbody>
+
+             </table></center>
 
 
 
