@@ -1,9 +1,85 @@
 <?php
+session_start();
+include "../database/db_connect.php";
 
+$error_message = $old_pass_db = $pass = $conf_pass =  $old_pass ="";
+if(isset($_SESSION['user_name']))
+{
+  $user_name = $_SESSION['user_name'];
+  $sql = "select * from login where  user_name='$user_name'";
+    $result = mysqli_query($con,$sql);
+    while($row = mysqli_fetch_assoc($result))
+    {
+      $old_pass_db= $row['password'];
+    }
+  if($_SERVER["REQUEST_METHOD"]=="POST")
+  {
+    if(isset($_POST["btn_submit"]))
+    {
+      if(empty($_POST['pass']))
+        {
+          $error_message = "PASSWORD CAN NOT BE EMPTY";
+        }
+        else{
+          $pass = $_POST['pass'];
+        }
+        if(empty($_POST['con_pass']))
+        {
+          $error_message = "CONFIRM PASSWORD CAN NOT BE EMPTY";
+        }else{
+          $conf_pass = $_POST['con_pass'];
+        }
+        if(empty($_POST['old_pass']))
+        {
+          $error_message = "OLD PASSWORD CAN NOT BE EMPTY";
+        }else{
+            $old_pass=$_POST['old_pass'];
+        }
 
-include "../rss/header_for_receptionist..php";
+        if($pass != $conf_pass)
+        {
+          $error_message="PASSWORD AND CONFIRM PASSWORD DOES NOT MATCH";
+        }
+        else
+        {
+          if(!password_verify($old_pass,$old_pass_db))
+          {
+              $error_message="PASSWORD DOES NOT MATCH";
+          }
+          else
+          {        
+            if(!password_verify($pass,$old_pass_db))
+            {              
+                $uname = $_SESSION['user_name'];
+                $pass=mysqli_real_escape_string($con,$pass);                               
+                $uname=mysqli_real_escape_string($con,$uname);                  
+                $hash_pass=password_hash($pass,PASSWORD_DEFAULT);                                  
 
+                $sql="update login  set password = '$hash_pass'  where user_name = '$uname' ";
 
+                if(mysqli_query($con,$sql))
+                {
+                   $error_message = "Password changeed";       
+                }
+                else 
+                {
+                  echo "Error updating record: " . mysqli_error($con);
+                }
+          }
+          else
+          {
+            $error_message = "OLD AND NEW PASSWORD CAN NOT BE SAME";
+          }
+        }
+       }
+    }
+  }
+
+}
+else{
+    header("Location: ../login.php");
+}
+include "../rss/header_for_receptionist.php";
 ?>
 
 <style>
@@ -95,7 +171,7 @@ body{
 
         <div class="wrapper">
           <h2>Change Password</h2>
-          <div id="error_message"></div>
+          <div id="error_message"> <?php echo $error_message; ?> </div>
 <form name='update' method="POST" action="<?php htmlspecialchars($_SERVER['PHP_SELF'])?>">
 
 
@@ -123,18 +199,6 @@ body{
         </tr>
         
 
-
-
-
-
-
-
-
-
-
-
-
-
 </div>
 
   <div class="btn">
@@ -149,4 +213,5 @@ body{
 </div>
 </section>
 </body>
+<script src ="../js/update_user.js"> </script>
 </html>

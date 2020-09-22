@@ -1,11 +1,9 @@
 var form = document.forms.update;
 var old_pass = document.getElementById("old_pass");
-form.omload = check_password();
+form.onload = check_password();
 
 function check_password(){
     old_pass.onblur =function(){
-
-        var name=uname.value.toUpperCase();
         var old=old_pass.value;
         var param="pass="+old;
         var xhr =new XMLHttpRequest();

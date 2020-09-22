@@ -39,24 +39,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
         }else{
           $email=validate($_POST['Email']);
         }
-        // if(empty($_POST['uname']))
-        // {
-        //     $uname_err = "USERNAME CAN NOT BE EMPTY";
-        // }else{
-        //   $uname=validate($_POST['uname']);
-        //   $uname = strtoupper($uname);
-
-
-          // $name=mysqli_real_escape_string($con,$uname);
-          // $sql="select * from login where user_name='$uname'";
-          // $result=mysqli_query($con,$sql);
-          // $row = mysqli_num_rows($result);
-
-          // if($row>0)
-          // {
-          //   $uname_err = "USERNAME ALREADY EXISTS";
-          // }
-        // }
+        
         if(empty($_POST['pass']))
         {
             $pass_err="PASSWORD CAN NOT BE EMPTY";
@@ -89,11 +72,12 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
             $old_pass=$_POST['old_pass'];
         }
 
-        if($pass != $conf_pass)
-        {
-          $pass_err="PASSWORD AND CONFIRM PASSWORD DOES NOT MATCH";
-        }
-
+      if($pass != $conf_pass)
+      {
+        $pass_err="PASSWORD AND CONFIRM PASSWORD DOES NOT MATCH";
+      }
+      else
+      {
         if(!password_verify($old_pass,$old_pass_db))
         {
             $old_pass_err="PASSWORD DOES NOT MATCH";
@@ -136,6 +120,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
             }
         
       }
+    }
 
     }
 }
