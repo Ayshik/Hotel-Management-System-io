@@ -2,46 +2,78 @@
 session_start();
 include "../database/db_connect.php";
 include "../rss/header_for_receptionist..php";
-
+$room = $error_message ="";
+$info = [];
+$fill = 0;
 
 if(isset($_SESSION['user_name']))
 {
-
-  $sql = "select room_number from room_booking";
+  if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['btn_fill']))
+  {
+    if(empty($_POST["room"]))
+    {
+    
+    }
+    else
+    {
+      $room=$_POST['room'];
+      $room = mysqli_escape_string($con , $room);
+      $sql = "select * from room_booking where room_number='$room' ";
       $result = mysqli_query($con,$sql);
-      while($row = mysqli_fetch_assoc($result))
-      {
+      $info = mysqli_fetch_assoc($result);
+      $fill = 1;
 
-$Broomnumbers=$row['room_number'];
+      $_SESSION['room'] = $_POST['room'];
+      $_SESSION['total'] =$info['total_room_price'];
+      $_SESSION['pay']=$info['payment'];
+      $_SESSION['due']=$info['payment_due'];
+    }
+  }
+  if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['btn_submit']))
+  {
+     //update for room_booking
+    $new_payment = $_POST['new_payment'];
+    $total = $_SESSION['total'];
+    $pay = $_SESSION['pay'];
+    $due = $_SESSION['due'];
+    $room = $_SESSION['room'];
 
+    unset($_SESSION['room']);
+    unset($_SESSION['total']);
+    unset($_SESSION['pay']);
+    unset($_SESSION['due']);
 
+    if(empty($_POST['new_payment']))
+    {
 
+    }
+    else
+    {
+      $pay =$pay + $new_payment;
+      $due = $total - $pay;
+      $pay = mysqli_escape_string($con,$pay);
+      $due = mysqli_real_escape_string($con, $due);
 
-      }
+    }
+     $check_out = $_POST['cout'];
+     $check_out = mysqli_real_escape_string($con,$check_out);
+     
+     $sql = "update room_booking SET payment = '$pay' , payment_due = '$due' , check_out = '$check_out' where room_number = '$room'";
+     if(mysqli_query($con , $sql))
+     {
+        $error_message = "PAYMENT SUCCESSFUL";
+     }
+     else
+     {
+        echo "Error while updating in room value: " . $sql . "<br>" . mysqli_error($con);
+     }
 
-$info=getdetails();
-
+  }
 
 }
 else{
 
     header("Location: ../login.php");
-}
-
-
-
-function getdetails(){
-
-  if(isset($_POST["room"])){
-$room=$_POST['room'];
-  global $con;
-  $sql = "select * from room_booking where room_number=ED13";
-      $result = mysqli_query($con,$sql);
-      return $result;
-
-
-}
-
 }
 
 
@@ -126,12 +158,6 @@ body{
   transition: all 0.5s ease;
 }
 
-
-
-
-
-
-
 </style>
 
 <section>
@@ -151,48 +177,40 @@ body{
 
               <label for="Name">Room No:</label >
 
-                  <select  name="room"><br><br>
+              <select  name="room"><br><br>
 
-                    <?php
+                <?php
+                if($fill == 0)
+                {    $sql = "select room_number from room_booking";
+                      $result = mysqli_query($con,$sql);
+                      while($row = mysqli_fetch_assoc($result))
+                      {
+                        $Broomnumbers=$row['room_number'];
+                        echo "<option value='$Broomnumbers'>$Broomnumbers</option>";
+                      }
+                }
+                else
+                {
+                  echo "<option>$room</option>";
+                }
+                ?>
+              </select><br>
 
-
-
-  $sql = "select room_number from room_booking";
-      $result = mysqli_query($con,$sql);
-      while($row = mysqli_fetch_assoc($result))
-      {
-
-$Broomnumbers=$row['room_number'];
-
-echo "<option value='$Broomnumbers'>$Broomnumbers</option>";
-
-}
-
-?>
-
-
-</select><br>
-
-
+            <div class="btn">
+              <tr>
+                <td colspan=2><input type="submit" name="btn_fill" value="fill the table" id='btn_submit'></td>
+              </tr>
+            </div>
 
     				<label for="Name">Name:</label >
-              <td><input type="text" name="name" placeholder='NAME' value="<?php echo $info["user_name"];?>"></td>
-
-
-
-
-
-
-
-
-
+              <td><input type="text" name="name" placeholder='NAME' value="<?php if($fill == 1){echo $info['user_name'];}?>"></td>
 
            <tr>
               <td><p>Check in</p></td>
             </tr>
            <tr>
              <td>
-               <input type="text" placeholder='Check in time'value="<?php echo $info["check_in"];?>" name="cin"></td>
+               <input type="text" placeholder='Check in time'value="<?php if($fill == 1) {echo $info["check_in"]; }?>" name="cin"></td>
             </tr>
 
             <tr>
@@ -200,13 +218,13 @@ echo "<option value='$Broomnumbers'>$Broomnumbers</option>";
              </tr>
             <tr>
               <td>
-                <input type="text" placeholder='Check out time'value="<?php echo $info["check_out"];?>" name="cout"></td>
+                <input type="text" placeholder='Check out time'value="<?php if($fill == 1) {echo $info["check_out"]; } ?>" name="cout"></td>
              </tr>
              <tr>
                   <td><p>Total Cost</p></td>
                 </tr>
                <tr>
-                 <td><input type="number" name="tc" id="tk" value="<?php echo $info["total_room_price"];?>"></td>
+                 <td><input type="number" name="tc" id="tk" value="<?php if($fill == 1){echo $info["total_room_price"]; } ?>"></td>
                 </tr>
 
 
@@ -214,7 +232,7 @@ echo "<option value='$Broomnumbers'>$Broomnumbers</option>";
                      <td><p>Payment Done</p></td>
                    </tr>
                   <tr>
-                    <td><input type="number" name="payment" value="<?php echo $info["payment"];?>"></td>
+                    <td><input type="number" name="payment" value="<?php if($fill == 1) {echo $info["payment"]; }?>"></td>
                    </tr>
 
 
@@ -225,14 +243,14 @@ echo "<option value='$Broomnumbers'>$Broomnumbers</option>";
                   <td><p>Payment Due</p></td>
                 </tr>
                 <tr>
-                  <td><input type='text' value = "<?php echo $info["payment_due"];?>"> </td>
+                  <td><input type='text' value = "<?php if($fill == 1){echo $info["payment_due"];} ?>"> </td>
                 </tr>
 
                 <tr>
                      <td><p>New Payment</p></td>
                    </tr>
                   <tr>
-                    <td><input type="number" name="payment" id="tk" value=""></td>
+                    <td><input type="number" name="new_payment" id="tk" value=""></td>
                    </tr>
 
 
@@ -240,7 +258,7 @@ echo "<option value='$Broomnumbers'>$Broomnumbers</option>";
 
         <div class="btn">
            <tr>
-             <td colspan=2><input type="submit" name="btn_submit" value="Book" id='btn_submit'></td>
+             <td colspan=2><input type="submit" name="btn_submit" value="update" id='btn_submit'></td>
            </tr>
         </div>
 
@@ -253,4 +271,7 @@ echo "<option value='$Broomnumbers'>$Broomnumbers</option>";
   </div>
 </section>
 </body>
+<script>
+//ajax for the option
+</script>
 </html>
