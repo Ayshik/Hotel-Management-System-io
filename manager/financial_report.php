@@ -79,52 +79,60 @@ background-color: #45a049;
          <div class="dashbord">
            <div class="icon-section">
 
+             <form  method="post" action="" enctype="multipart/form-data">
+               <div class="container">
+               <center><h2 style="color:white">Prebooked & Booking Report</h2><input type="text" name="fnamee" id="fname" placeholder="please select a Place" required ><br><br></center>
+               <input type="hidden" name="sl" id="no">
 
-            <center><table id="table" border='1'>
-                     <thead>
-                       <th>--------</th>
-                       <th>--------</th>
-                       <th>--------</th>
-                       <th>--------</th>
-                       <th>table e value dile thik hoye jabe</th>
+                 <div class="row">
+                   <input type="submit" name="passingid" value="Prebooke">
+                 </div>
+                 <div class="row">
+                   <input type="submit" name="passingid" value="Booked">
+                 </div>
 
+               </div>
 
+             <center><input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name"></center>
 
-                     </thead>
+             <center><table id="myTable">
+             <tr class="header">
 
+             <th style="color:black">User Name </th>
+             <th style="color:black">Room Number</th>
 
-                     <tbody>
-                       <?php
-                      //  foreach($info as $infos)
-                         {
-                          /* echo "<tr>";
-                             echo "<td>".$infos[""]."</td>";
-                             echo "<td>".$infos[""]."</td>";
-
-                             echo "<td>".$infos[""]."</td>";
-                     echo "<td>".$infos[""]."</td>";
-                       echo "<td>".$infos[""]."</td>";
-                               echo "<td>".$infos[""]."</td>";
-                             echo "<td>".$infos[""]."</td>";
-                             echo "<td>".$infos[""]."</td>";
-                             echo "<td>".$infos[""]."</td>";
-                             echo "<td>".$infos[""]."</td>";*/
-
-
-                           echo "</tr>";
-                         }
-                       ?>
-
-                     </tbody>
+             <th style="color:black">Earnings</th>
 
 
 
+             </tr>
+             <tbody>
+             <?php
+             foreach($info as $info)
+             {
+             echo "<tr>";
+
+
+             echo "<td>".$info["user_name"]."</td>";
+             echo "<td>".$info["room_number"]."</td>";
+
+             echo "<td>".$info["Totalcost"]."</td>";
+
+              
+
+
+             echo "</tr>";
+             }
+             ?>
+
+             </tbody>
+
+             </table></center>
 
 
 
+               </form>
 
-
-                   </table></center>
 
 
 
