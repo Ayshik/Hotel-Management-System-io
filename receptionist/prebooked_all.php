@@ -95,7 +95,7 @@ function prebokinginfo(){
            <div class="icon-section">
 
 
-            <center> <table id="table" border='1'>
+            <center> <table  id="table" border='1'>
                      <thead>
                        <th>Sl.</th>
                        <th>User Name</th>

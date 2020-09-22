@@ -42,14 +42,12 @@
           <a href="changepass.php"><i class="fas fa-link"></i>CHANGE PASSWORD</a>
         </li>
         <li>
-        <a href="prebook_request.php"><i class="fas fa-stream"></i>PAYMENT & CHECKOUT</a>
+        <a href="payment_checkout_update.php"><i class="fas fa-stream"></i>PAYMENT & CHECKOUT</a>
         </li>
         <li>
-        <a href="prebooked_all.php"><i class="fas fa-stream"></i>PREBOOKED </a>
+        <a href="prebooked_all.php"><i class="fas fa-stream"></i>PREBOOKED INFO</a>
         </li>
-        <li>
-        <a href="offline_book.php"><i class="fas fa-stream"></i>OFFLINE BOOKING</a>
-        </li>
+        
 		
 		<li>
         <a href="booking.php"> <i class="fas fa-stream"></i>BOOK ROOM</a>
