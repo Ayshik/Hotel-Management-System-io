@@ -17,9 +17,9 @@ if(isset($_SESSION['user_name']))
   $total_days = $diff->format("%a");
   $total_cost = $total_days * $price ;
   
-  unset($_SESSION['room']);
-  unset($_SESSION['pre_checkin']);
-  unset($_SESSION['pre_checkout']);
+  $_SESSION['room'];
+  $_SESSION['pre_checkin'];
+  $_SESSION['pre_checkout'];
   $_SESSION['price'];
 
 
