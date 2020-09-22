@@ -14,63 +14,64 @@ include('../rss/Dheader&navbarfor_manager.php');
 
 
 <style>
-  table {
-    border-collapse: collapse;
-
-  color: white;
-  border: transparent;
-  }
-
-  th, td {
-    text-align: center;
-      padding: 8px;
-      font-family: cursive;
-      background: black;
+* {
+box-sizing: border-box;
 }
-  }
 
-  tr:nth-child(even){background-color: #f2f2f2}
+#myInput {
+background-image: url('https://www.w3schools.com/css/searchicon.png');
+background-position: 10px 10px;
+background-repeat: no-repeat;
+width: 50%;
+font-size: 16px;
+padding: 12px 20px 12px 40px;
+border: 1px solid #ddd;
+margin-bottom: 12px;
 
-  th {
-    background-color: #4CAF50;
-    padding-left: 67px;
-    color: white;
-  }
+}
 
-  table tr:not(:first-child){
-                 cursor: pointer;transition: all .25s ease-in-out;
-             }
-             table tr:not(:first-child):hover{background-color: #ddd;}
-
-             .btn {
-     background-color: red;
-     border: none;
-     color: white;
-     padding: 12px 16px;
-     font-size: 16px;
-     cursor: pointer;
-  	 border-radius: 10px;
-   }
-
-
-   .btn:hover {
-     background-color: RoyalBlue;
-   }
-
-   a:link{
-
-
-     color: white;
-     text-decoration: none;
-
-   }
-   a:visited{
+#myTable {
+border-collapse: collapse;
+  width: 50%;
+  border: 1px solid #ddd;
+  font-size: 18px;
 
   color: white;
+}
 
-   }
+#myTable th, #myTable td {
+text-align: left;
+padding: 12px;
+}
 
-  </style>
+#myTable tr {
+border-bottom: 1px solid #ddd;
+}
+
+#myTable tr.header, #myTable tr:hover {
+background-color: mediumseagreen;
+}
+
+.container {
+border-radius: 5px;
+
+padding: 84px;
+}
+input[type=submit] {
+background-color: #4CAF50;
+color: white;
+padding: 12px 20px;
+border: none;
+border-radius: 4px;
+cursor: pointer;
+float: right;
+margin-right: 47%;
+}
+
+input[type=submit]:hover {
+background-color: #45a049;
+}
+</style>
 
 
   <section>
