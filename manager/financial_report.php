@@ -82,14 +82,18 @@ border-radius: 5px;
 padding: 84px;
 }
 #pre {
-background-color: #4CAF50;
-color: white;
-padding: 12px 20px;
-border: none;
-border-radius: 11px;
-cursor: pointer;
-float: right;
-margin-right: 47%;
+  background-color: #4CAF50;
+      color: white;
+      padding: 12px 20px;
+      border: none;
+      margin-left: 20px;
+      margin-left: 39%;
+      margin-top: 80px;
+      border-radius: 11px;
+      cursor: pointer;
+      font-size: xxx-large;
+      /* float: right; */
+      margin-right: 47%;
 }
 
 #pre:hover {
@@ -98,16 +102,19 @@ background-color: #45a049;
 
 #boo {
   background-color: #4CAF50;
-      color: white;
-      padding: 12px  25px;
-      border: none;
-      border-radius: 11px;
-      cursor: pointer;
-      /* padding-top: 10px; */
-      float: right;
-      margin-top: 10px;
-      margin-right: 47%;
+    color: white;
+    padding: 13px 44px;
+    font-size: -webkit-xxx-large;
+    border: none;
+    border-radius: 11px;
+    margin-left: 10px;
+    cursor: pointer;
+    /* padding-top: 10px; */
+    float: right;
+    margin-top: 28px;
+    margin-right: 38%;
 }
+
 
 #boo:hover {
 background-color: #45a049;
@@ -125,13 +132,13 @@ background-color: #45a049;
                <center><h2 style="color:white">Prebooked & Booking Report</h2><br><br></center>
                <input type="hidden" name="sl" id="no">
 
-                <center> <div class="row">
+                 <div class="row">
                    <input id="pre" type="submit" name="prebooking" value="Prebooke">
-                 </div></center>
+                 </div>
 
-                <center><div class="row">
+                <div class="row">
                    <input id="boo" type="submit" name="booking" value="Booked">
-                 </div></center><br><br>
+                 </div><br><br>
 
                </div>
 
