@@ -3,18 +3,19 @@ include "../database/db_connect.php";
 session_start();
 if(isset($_SESSION['user_name']))
 {
-   if($query="SELECT count(serial) AS total FROM room_details WHERE class='Premium' "){
-  $result=mysqli_query($con,$query);
-  $values=mysqli_fetch_assoc($result);
-  $pr=$values["total"];
-
-  if($pr==0)
-  {$pr='no';}
-  else {
-    $pr=$values["total"];
-  }
-
-}
+   if($query="SELECT count(serial) AS total FROM room_details WHERE class='Premium' ")
+   {
+          $result=mysqli_query($con,$query);
+          $values=mysqli_fetch_assoc($result);
+          $pr=$values["total"];
+        
+          if($pr==0)
+          {$pr='no';}
+          else 
+          {
+            $pr=$values["total"];
+          }
+    } 
 
 
 if($query="SELECT count(serial) AS total FROM room_details WHERE class='Economy' "){
