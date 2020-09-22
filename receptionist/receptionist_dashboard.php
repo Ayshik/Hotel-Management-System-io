@@ -1,52 +1,117 @@
 <?php
 include "../database/db_connect.php";
 session_start();
+$rn_booked = $room_available = [];
+$economy = $premium = $basic = 0;
 if(isset($_SESSION['user_name']))
 {
-   if($query="SELECT count(serial) AS total FROM room_details WHERE class='Premium' ")
-   {
-          $result=mysqli_query($con,$query);
-          $values=mysqli_fetch_assoc($result);
-          $pr=$values["total"];
-        
-          if($pr==0)
-          {$pr='no';}
-          else 
+    $local = date("Y-m-d");
+    $i=0;
+
+    $sql= "SELECT * FROM pre_booking";
+    $result = mysqli_query($con , $sql);
+    $row = mysqli_num_rows($result);
+    if($row>0)
+    {
+        while($row = mysqli_fetch_assoc($result))
+        {
+          $d1 = $row['pre_check_in'];
+          $d2 = $row['pre_check_out'];
+  
+          $local_date = date('Y-m-d', strtotime($local));
+          $startDate = date('Y-m-d', strtotime($d1));
+          $endDate = date('Y-m-d', strtotime($d2));
+  
+          if (($local_date >= $startDate) && ($local_date <= $endDate))
           {
-            $pr=$values["total"];
+            $rn_booked[$i] = $row["room_number"]; 
+            $i++;
           }
-    } 
+                
+        }
+    }
+    $sql1 = "SELECT * FROM room_booking";
+    $result1 = mysqli_query($con , $sql1);     
+    $row = mysqli_num_rows($result1);     
+    if($row>0)
+    {
+        while($row = mysqli_fetch_assoc($result1))
+        {
+          $d1 = $row['check_in'];
+          $d2 = $row['check_out'];
+  
+          $local_date = date('Y-m-d', strtotime($local));
+          $startDate = date('Y-m-d', strtotime($d1));
+          $endDate = date('Y-m-d', strtotime($d2));
+  
+          if (($local_date >= $startDate) && ($local_date <= $endDate))
+          {
+            $rn_booked[$i] = $row["room_number"]; 
+            $i++; 
+          }
+          
+        }
+    }
+        
 
+    $rn_booked = array_unique($rn_booked);
 
-if($query="SELECT count(serial) AS total FROM room_details WHERE class='Economy' "){
-  $result=mysqli_query($con,$query);
-  $values=mysqli_fetch_assoc($result);
-  $er=$values["total"];
+    $sql2 = "SELECT * FROM room_details WHERE class= 'Premium' ";    
+    $result2 = mysqli_query($con , $sql2);   
+    $row = mysqli_num_rows($result2);
+    if($row>0)
+    {
+      while($row = mysqli_fetch_assoc($result2))
+      {
+        array_push($room_available,$row['room_number']);
+      }
+      for($i=0;$i<count($rn_booked);$i++)
+      {
+        $index = array_search($rn_booked[$i],$room_available,true);
+        unset($room_available[$index]);
+      }
+      $room_available = array_values ($room_available);
+      $premium = count($room_available);
+      $room_available = [];    
+    }
 
-  if($er==0)
-  {$er='no';}
-  else {
-    $er=$values["total"];
-  }
+    $sql3 = "SELECT * FROM room_details WHERE class= 'Economy' ";    
+    $result3 = mysqli_query($con , $sql3);   
+    $row1 = mysqli_num_rows($result3);
+    if($row1>0)
+    {
+      while($row = mysqli_fetch_assoc($result3))
+      {
+        array_push($room_available,$row['room_number']);
+      }
+      for($i=0;$i<count($rn_booked);$i++)
+      {
+        $index = array_search($rn_booked[$i],$room_available,true);
+        unset($room_available[$index]);
+      }
+      $room_available = array_values ($room_available);
+      $economy = count($room_available);
+      $room_available = [];      
+    }
 
-}
-
-
-
-
-if($query="SELECT count(serial) AS total FROM room_details WHERE class='Basic' "){
-  $result=mysqli_query($con,$query);
-  $values=mysqli_fetch_assoc($result);
-  $br=$values["total"];
-
-  if($br==0)
-  {$br='no';}
-  else {
-    $br=$values["total"];
-  }
-
-}
-
+    $sql4 = "SELECT * FROM room_details WHERE class= 'Basic' ";    
+    $result4 = mysqli_query($con , $sql4);   
+    $row2 = mysqli_num_rows($result4);
+    if($row2>0)
+    {
+      while($row = mysqli_fetch_assoc($result4))
+      {
+        array_push($room_available,$row['room_number']);
+      }
+      for($i=0;$i<count($rn_booked);$i++)
+      {
+        $index = array_search($rn_booked[$i],$room_available,true);
+        unset($room_available[$index]);
+      }
+      $room_available = array_values ($room_available);
+      $basic = count($room_available);
+      $room_available = [];      
+    }
 }
 else{
     header("Location: ../login.php");
@@ -364,7 +429,7 @@ include "../rss/header_for_receptionist..php";
             </div>
             <div class="face face2">
                 <div class="content">
-                    <p>We Have <?php echo $br ; ?> Unbooked Basic Rooms.</p>
+                    <p>We Have <?php echo $basic ; ?> Unbooked Basic Rooms.</p>
                         
                 </div>
             </div>
@@ -378,7 +443,7 @@ include "../rss/header_for_receptionist..php";
             </div>
             <div class="face face2">
                 <div class="content">
-                    <p>We Have <?php echo $er ; ?> Unbooked Economy Rooms.</p>
+                    <p>We Have <?php echo $economy ; ?> Unbooked Economy Rooms.</p>
                         
                 </div>
             </div>
@@ -392,7 +457,7 @@ include "../rss/header_for_receptionist..php";
             </div>
             <div class="face face2">
                 <div class="content">
-                    <p>We Have <?php echo $pr ; ?> Unbooked Premium Rooms.</p>
+                    <p>We Have <?php echo $premium ; ?> Unbooked Premium Rooms.</p>
                         
                 </div>
             </div>
