@@ -14,12 +14,12 @@ if(isset($_SESSION['user_name']))
 
 $Broomnumbers=$row['room_number'];
 
-$info=getdetails();
+
 
 
       }
 
-
+$info=getdetails();
 
 
 }
@@ -31,16 +31,18 @@ else{
 
 
 function getdetails(){
+
+  if(isset($_POST["room"])){
 $room=$_POST['room'];
   global $con;
-  $sql = "select * from room_booking where room_number='$room'";
+  $sql = "select * from room_booking where room_number=ED13";
       $result = mysqli_query($con,$sql);
       return $result;
 
 
 }
 
-
+}
 
 
 
