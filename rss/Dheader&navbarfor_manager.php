@@ -16,7 +16,7 @@
       <div class="bgimage">
         <div class="menu">
           <div class="leftmenu">
-            <h3><a href="../home.html">OCEAN PARADISE</a></h3>
+            <h3><a href="manager_dashboard.php">OCEAN PARADISE</a></h3>
           </div>
           <div class="welcome">
             <h1>Welcome Manager</h1>

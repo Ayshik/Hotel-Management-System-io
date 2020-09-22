@@ -97,6 +97,7 @@ include('../rss/Dheader&navbarfor_manager.php');
 <style>
 *{
   margin: 0px;
+  color: black;
   padding: 0;
   box-sizing: border-box;
   outline: none;
@@ -180,7 +181,7 @@ body{
 <section>
   <div class="main-section">
     <div class="dashbord">
-      <div class="icon-section">
+      
 
         <div class="wrapper">
           <h2>Add Receptionist</h2>
@@ -243,7 +244,7 @@ body{
 </div>
 </div>
 </div>
-</div>
+
 </section>
 </body>
 <script src="../js/add_by_owner.js"></script>

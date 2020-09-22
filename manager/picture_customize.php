@@ -372,7 +372,7 @@ body{
 
 
                 <div class="input_field">
-            			<label for="Class">Select Class :</label>
+            			<label for="Class"style="color:black">Select Class :</label>
                   <select  name="class_room"><br><br>
 
                     <option value="Premium">Premium</option>
@@ -385,8 +385,8 @@ body{
 
 								<div class="input_field">
 
-                    <label for="pic">Picture :</label >
-                    <input type="file" id="dur" name="room_image">
+                    <label for="pic"style="color:black">Picture :</label >
+                    <input style="color:black"type="file" id="dur" name="room_image">
 
 				        </div>
 
@@ -412,7 +412,7 @@ body{
 
 
                   <div class="input_field">
-                    <label for="Class">Select Dashboard :</label>
+                    <label for="Class"style="color:black">Select Dashboard :</label>
                     <select  name="class_dashboard"><br><br>
 
                       <option value="Owner" selected>Owner</option>
@@ -429,8 +429,8 @@ body{
 
                   <div class="input_field">
 
-                      <label for="pic">Picture :</label >
-                      <input type="file" id="dur" name="all_user_image">
+                      <label for="pic"style="color:black">Picture :</label >
+                      <input style="color:black"type="file" id="dur" name="all_user_image">
 
                   </div>
 
@@ -456,7 +456,7 @@ body{
 
 
                 <div class="input_field">
-                  <label for="Class">Select Class :</label>
+                  <label for="Class"style="color:black">Select Class :</label>
                   <select  name="class"><br><br>
 
                     <option value="Premium" selected>Premium</option>
@@ -471,8 +471,8 @@ body{
 
                     <div class="input_field">
 
-                        <label for="pic">Picture :</label >
-                        <input type="file" id="dur" name="galary_image">
+                        <label for="pic"style="color:black">Picture :</label >
+                        <input style="color:black"type="file" id="dur" name="galary_image">
 
                     </div>
 

@@ -95,7 +95,7 @@ function reports(){
 
   <section>
        <div class="main-section">
-         <div class="dashbord">
+         
            <div class="icon-section">
 
 
@@ -148,7 +148,7 @@ function reports(){
 
            </div>
          </div>
-       </div>
+       
      </section>
 
 

@@ -90,6 +90,7 @@ include('../rss/Dheader&navbarfor_manager.php');
   padding: 0;
   box-sizing: border-box;
   outline: none;
+  color: black;
   font-family: 'Josefin Sans', sans-serif;
       font-weight: bold;
 }
@@ -170,7 +171,7 @@ body{
 <section>
   <div class="main-section">
     <div class="dashbord">
-      <div class="icon-section">
+     
 
         <div class="wrapper">
           <h2>Change Password</h2>
@@ -213,7 +214,7 @@ body{
 </div>
 </div>
 </div>
-</div>
+
 </section>
 
 </body>

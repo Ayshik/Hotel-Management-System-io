@@ -177,7 +177,7 @@ body{
             <div id="error_message" > <?php echo $error_message; ?> </div>
               <form id="myform" onsubmit="return validate();" method="post" action=<?php htmlspecialchars($_SERVER['PHP_SELF'])?> >
                 <div class="input_field">
-            			<label for="Class">Select Class :</label>
+            			<label for="Class"style="color:black">Select Class :</label>
                   <select  name="class"><br><br>
 
                     <option value="Premium" selected>Premium</option>
@@ -190,7 +190,7 @@ body{
 
                 <div class="input_field">
 
-            		<label for="Class">Select Catagory :</label>
+            		<label for="Class"style="color:black">Select Catagory :</label>
 
                     <select  name="Category"><br><br>
 
@@ -204,7 +204,7 @@ body{
             	</div>
 
                 <div class="input_field">
-            			<label for="Price">Room Price :</label >
+            			<label for="Price"style="color:black">Room Price :</label >
 
                     <input type="number" placeholder="Give Room Price" name="Price" value="" id="bal" >
                 </div>
