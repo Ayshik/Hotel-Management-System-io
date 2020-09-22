@@ -20,7 +20,7 @@ if(isset($_SESSION['user_name']))
   unset($_SESSION['room']);
   unset($_SESSION['pre_checkin']);
   unset($_SESSION['pre_checkout']);
-  unset($_SESSION['price']);
+  $_SESSION['price'];
 
 
  if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['btn_submit']))
