@@ -8,7 +8,7 @@ include "../database/db_connect.php";
 if(isset($_SESSION['user_name']))
 {
 
-  $info=prebokinginfo();
+  
 
 }
 else{
@@ -18,13 +18,12 @@ else{
 
 
 
-function prebokinginfo(){
+function bokinginfo(){
+     global $con;
 
-  global $con;
-      $uname = $_SESSION['user_name'];
-      $sql = "select * from pre_booking";
+      $sql = "select * from room_booking";
       $result = mysqli_query($con,$sql);
-      return $result;
+      return mysqli_fetch_asscoc($result);
 
 
 
@@ -96,7 +95,8 @@ function prebokinginfo(){
 
 
             <center> <table  id="table" border='1'>
-                     <thead>       
+                     <thead>
+                       <!-- <th>Sl.</th> -->
                        <th>User Name</th>
 
                          <th>Room No</th>
@@ -104,8 +104,8 @@ function prebokinginfo(){
                        <th>Total Cost</th>
                        <th>Payment Due</th>
 
-                   <th>Pre Checkin</th>
-                   <th>Pre Checkout</th>
+                   <th>Nid</th>
+                   <th>Phone</th>
 
                    <th>Checkin</th>
                    <th>Checkout</th>
@@ -116,22 +116,25 @@ function prebokinginfo(){
 
                      <tbody>
                        <?php
-                         foreach($info as $infos)
+
+                         $sql = "select * from room_booking";
+                         $result = mysqli_query($con,$sql);
+                         
+                         while($infos = mysqli_fetch_assoc($result))
                          {
                            echo "<tr>";
-                             echo "<td>".$infos["user_name"]."</td>";
+                            //  echo "<td>".$infos["serial"]."</td>";
 
-                             echo "<td>".$infos["room_number"]."</td>";
-                     echo "<td>".$infos["payment"]."</td>";
-                       echo "<td>".$infos["Totalcost"]."</td>";
-                               echo "<td>".$infos["Payment_due"]."</td>";
-                             echo "<td>".$infos["pre_check_in"]."</td>";
-                             echo "<td>".$infos["pre_check_out"]."</td>";
-                             echo "<td>".$infos["check_in"]."</td>";
-                             echo "<td>".$infos["check_out"]."</td>";
-
-
-                           echo "</tr>";
+                            echo "<td>".$infos["user_name"]."</td>";
+                            echo "<td>".$infos["room_number"]."</td>";
+                            echo "<td>".$infos["payment"]."</td>";
+                            echo "<td>".$infos["total_room_price"]."</td>";
+                            echo "<td>".$infos["payment_due"]."</td>";
+                            echo "<td>".$infos["nid_no"]."</td>";
+                            echo "<td>".$infos["phone_no"]."</td>";
+                            echo "<td>".$infos["check_in"]."</td>";
+                            echo "<td>".$infos["check_out"]."</td>";
+                            echo "</tr>";
                          }
                        ?>
 

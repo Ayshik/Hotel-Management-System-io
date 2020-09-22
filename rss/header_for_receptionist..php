@@ -54,7 +54,7 @@
         </li>
 		
         <li>
-        <a href="bookinginfo.php"> <i class="fas fa-stream"></i>BOOKED ROOM INFO</a>
+        <a href="booked_all.php"> <i class="fas fa-stream"></i>BOOKED ROOM INFO</a>
         </li>
         
         <li>
