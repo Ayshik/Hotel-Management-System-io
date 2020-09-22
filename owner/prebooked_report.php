@@ -14,7 +14,7 @@ else{
     header("Location: ../login.php");
 }
 
-include('../rss/Dheader&navbarfor_manager.php');
+include('../rss/header_for_owner.php');
 
 
 

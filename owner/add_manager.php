@@ -23,7 +23,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST")
             $sql="select * from login where user_name='$uname'";
             $result=mysqli_query($con,$sql);
             $row = mysqli_num_rows($result);
-          
+
             if($row>0)
             {
               $uname_err = "USERNAME ALREADY EXISTS";
@@ -92,11 +92,103 @@ function add_by_owner()
 
 include('../rss/header_for_owner.php');
 ?>
+<style>
+*{
+  margin: 0px;
 
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  font-family: 'Josefin Sans', sans-serif;
+      font-weight: bold;
+}
+
+body{
+
+}
+
+.wrapper{
+  position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    max-width: 250px;
+    width: 100%;
+    background: #fff;
+    padding: 24px;
+    border-radius: 11px;
+
+}
+
+.wrapper h2{
+  text-align: center;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: #332902;
+}
+
+.wrapper .input_field{
+  margin-bottom: -7px;
+      line-height: 27px;
+      text-align: center;
+  }
+}
+
+.wrapper .input_field input[type="text"],
+.wrapper textarea{
+  border: 1px solid #e0e0e0;
+  width: 100%;
+  padding: 10px;
+}
+
+.wrapper textarea{
+  resize: none;
+  height: 64px;
+}
+
+.wrapper .btn input[type="submit"]{
+  border: 0px;
+  margin-top: 15px;
+  padding: 10px;
+  text-align: center;
+  width: 100%;
+  background: #fece0c;
+  color: #332902;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  font-weight: bold;
+  border-radius: 25px;
+  cursor: pointer;
+}
+
+#error_message{
+  margin-bottom: 20px;
+  background: #fe8b8e;
+  padding: 0px;
+  text-align: center;
+  font-size: 14px;
+  transition: all 0.5s ease;
+}
+
+
+
+
+</style>
+
+
+
+<section>
+  <div class="main-section">
+
+
+
+        <div class="wrapper">
+          <h2>Add Manager</h2>
 
 <form method="POST" action="<?php htmlspecialchars($_SERVER['PHP_SELF'])?>" name="add_by_owner">
 
-<h1>ADD MANAGER</h1>
+<div class="input_field">
 
     <table>
         <tr>
@@ -131,12 +223,20 @@ include('../rss/header_for_owner.php');
         <tr>
             <td> <?php echo $con_pass_err ; ?> </td>
         </tr>
+        </table>
+</div>
 
+<div class="btn">
         <tr>
             <td><input type="submit" name="btn_manager"></td>
         </tr>
-    </table>
+    </div>
 </form>
+</div>
+</div>
+
+</section>
 </body>
+
 <script src="../js/add_by_owner.js"></script>
-</html>    
+</html>

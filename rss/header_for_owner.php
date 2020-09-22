@@ -6,6 +6,8 @@
     <title>PARADISE HOTEL & RESORT</title>
 
     <link rel="stylesheet" href="../css/blank.css" />
+	<link rel="stylesheet" href="../css/ownerdashboard.css" />
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
     
   </head>
@@ -52,8 +54,8 @@
           <a href="financial_report.php"><i class="fas fa-stream"></i>FINANCIAL REPORT</a>
         </li>
         <li>
-          <a href="report.php"
-            ><i class="fas fa-calendar-week"></i>FEEDBACK FROM CUSTOMER</a
+          <a href="report_by_customer.php"
+            ><i class="fas fa-calendar-week"></i>CUSTOMER REPORT</a
           >
         </li>
       </ul>
