@@ -133,8 +133,9 @@ if(isset($_SESSION['user_name']))
         unset($room_available[$index]);
       }
       $room_available = array_values ($room_available);
-      print_r($room_available);
 
+    if(count($room_available)>0)
+      {
       $available = 1;
       $sql3 = "select price from room_details where room_number = '$room_available[0]' ";
       $result3 = mysqli_query($con, $sql3);
@@ -155,6 +156,11 @@ if(isset($_SESSION['user_name']))
       $_SESSION['total_cost'] = $total_cost;
       $_SESSION['pre_checkin'] = $check_in;
       $_SESSION['pre_checkout'] = $check_out;
+    }
+    else 
+    {
+      $error_message = "room not available ";
+    }
 
     }
     else
