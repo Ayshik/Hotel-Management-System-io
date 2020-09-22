@@ -13,8 +13,8 @@
       href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans"
       rel="stylesheet"
     />
-    <link rel="stylesheet" type="text/css" href="css/login.css" />
-    <link rel="stylesheet" type="text/css" href="css/registration.css" />
+    <!-- <link rel="stylesheet" type="text/css" href="css/login.css" />
+    <link rel="stylesheet" type="text/css" href="css/registration.css" /> -->
     <link rel="stylesheet" href="css/team.css">
   </head>
   <body>
