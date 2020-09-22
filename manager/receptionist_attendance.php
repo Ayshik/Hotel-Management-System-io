@@ -31,6 +31,14 @@ function attendance(){
 
 ?>
 <style>
+.dashbord {
+    width: 62%;
+    display: inline-block;
+    color: #fff;
+margin-top: 50px;
+background: transparent;
+}
+	
   table {
     border-collapse: collapse;
 
