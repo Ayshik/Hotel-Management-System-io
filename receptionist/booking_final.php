@@ -13,22 +13,37 @@ if(isset($_SESSION['user_name']))
   $r = mysqli_query($con , $sql );
   while($row = mysqli_fetch_assoc($r) )
   {
-    $price = $row["price"];
-    echo $price;
+    //$price = $row["price"];
+    //echo $price;
+	//voda ato pachas ken jinish
   }
   $check_in = $_SESSION['pre_checkin'];
   $check_out = $_SESSION['pre_checkout'];
-
+$price=$_SESSION['price'];
   $date1=date_create($check_in);
   $date2=date_create($check_out);
   $diff=date_diff($date1,$date2);
-  $total_days = $diff->format("%a"); 
+  $total_days = $diff->format("%a");
   $total_cost = $total_days * $price ;
- //session unset kor laghbe 
- 
+ //session unset kor laghbe
+
  if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['btn_submit']))
  {
+	  $name=$_POST['name'];
+	  $phone=$_POST['phone'];
+	  $nid=$_POST['nid'];
+	  $roomno=$_POST['roomno'];
+	  $payment=$_POST['payment'];
+	  $paymendue=$total_cost-$payment;
+	  $addedby=$_SESSION['user_name'];
+	  
+$sql="insert into room_booking(`user_name`, `phone_no`, `nid_no`, `room_number`, `total_room_price`, `payment`, `payment_due`, `check_in`, `check_out`, `booked_by`) values('$name','$phone','$nid','$roomno','$total_cost','$payment','$paymendue','$check_in','$check_out','$addedby')";
 
+  if (mysqli_query($con, $sql)) {
+	  
+	  echo '<script>alert("successfully booked!!!")</script>';
+	  
+  }
  }
 }
 else{
@@ -81,8 +96,8 @@ body{
 }
 
 .wrapper .input_field{
-  margin-bottom: 10px;
-    line-height: 36px;
+ margin-bottom: -19px;
+    line-height: 25px;
 }
 
 .wrapper .input_field input[type="text"],
@@ -162,7 +177,7 @@ body{
               <td><p>Room Price</p></td>
             </tr>
             <tr>
-              <td><input type='text' value = "<?php echo $price ;?>"> </td>
+              <td><input type='text' value = "<?php echo $_SESSION["price"];?>"> </td>
             </tr>
 
 
@@ -174,7 +189,7 @@ body{
               <td><p>NATIONAL ID NUMBER:</p></td>
             </tr>
             <tr>
-             <td><input type="number" name="nid" placeholder='NATIONAL ID NUMBER' value="" readonly></td>
+             <td><input type="number" name="nid" placeholder='NATIONAL ID NUMBER' value="" ></td>
             </tr>
 
 

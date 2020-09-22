@@ -131,9 +131,13 @@ if(isset($_SESSION['user_name']))
         }
         else
         {
+			
           $room = $_POST['room_number'];
           $rn = mysqli_escape_string($con,$room);
           $_SESSION['room'] = $rn; 
+		  $price = $_POST['price'];
+		  $_SESSION['price'] = $price; 
+		  
           header("location:booking_final.php");
         }
   }
@@ -243,7 +247,9 @@ background-color: #45a049;
                   </div><br><br><br>
 <!-- label is more suitable here -->
         <center><h2 style="color:white">Room No</h2><input type="text" name="room_number" id="fname" placeholder="please select a Room" readonly required><br><br></center>
-    
+     <input type="hidden" name="price" id="no">
+	 
+	 <!--ei hidden input e price load hosse-->
           <div class="row">
             <input type="submit" name="btn_next" value="Next">
           </div>
@@ -326,6 +332,7 @@ else
 
       $_SESSION['pre_checkin'] = $check_in;
       $_SESSION['pre_checkout'] = $check_out;
+	  
 
     }
     else
