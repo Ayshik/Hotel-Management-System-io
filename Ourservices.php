@@ -162,11 +162,14 @@ include('rss/header.php');
                         <div class="pic">
                         <div id="slider">
                             <figure>
-                                <img src="css/image/pre.jpg">
-                                <img src="css/image/pre2.jpg">
-                                <img src="css/image/eco.jpg">
-                                <img src="css/image/eco2.jpg">
-                                <img src="css/image/pre.jpg">
+                                <img src="css/image/slider1.png">
+                                <img src="css/image/slider2.png">
+                                <img src="css/image/slider3.png">
+                                <img src="css/image/slider4.png">
+                                <img src="css/image/slider5.png">
+								
+								
+								
                             </figure>
                        </div>
                      </div>

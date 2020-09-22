@@ -6,7 +6,7 @@
 }
 
 body {
-  background-color: #12172b;
+  background-image: url(image/1.jpg);
   font-family: "Poppins", sans-serif;
 }
 
@@ -50,9 +50,9 @@ body {
 }
 
 .user-name {
-  margin-top: 32px;
-    font-size: 35px;
-    padding-left: 21px;
+ margin-top: 35px;
+    font-size: 22px;
+    padding-left: 49px;
 }
 
 .profile h5 {

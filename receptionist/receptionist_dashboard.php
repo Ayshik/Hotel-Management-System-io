@@ -162,7 +162,7 @@ include "../rss/header_for_receptionist..php";
 .container .card .face.face1{
    position: relative;
     
-    background-image: url(../css/image/pre.jpg);
+    background-image: url(../css/image/Premium.jpg);
     background-size: cover;
     /* background: #333; */
     border: 1px solid rebeccapurple;
@@ -256,7 +256,7 @@ include "../rss/header_for_receptionist..php";
 .container .card2 .face.face1{
    position: relative;
     
-    background-image: url(../css/image/eco.jpg);
+    background-image: url(../css/image/Economy.jpg);
     background-size: cover;
     /* background: #333; */
     border: 1px solid rebeccapurple;
@@ -349,7 +349,7 @@ include "../rss/header_for_receptionist..php";
 .container .card3 .face.face1{
    position: relative;
     
-    background-image: url(../css/image/nor.jpg);
+    background-image: url(../css/image/Basic.jpg);
     background-size: cover;
     /* background: #333; */
     border: 1px solid rebeccapurple;

@@ -57,21 +57,29 @@ img:hover{
 
 <main>
  <div class="box">
-<img src="css/image/pre.jpg"></div>
+<img src="css/image/galary1.jpg"></div>
 <div class="box">
-<img src="css/image/pre.jpg"></div>
+<img src="css/image/galary2.jpg"></div>
 <div class="box">
-<img src="css/image/pre.jpg"></div>
+<img src="css/image/galary3.jpg"></div>
 <div class="box">
-<img src="css/image/pre.jpg"></div>
+<img src="css/image/galary4.jpg"></div>
 <div class="box">
-<img src="css/image/pre.jpg"></div>
+<img src="css/image/galary5.jpg"></div>
 <div class="box">
-<img src="css/image/pre.jpg"></div>
+<img src="css/image/galary6.jpg"></div>
 <div class="box">
-<img src="css/image/pre.jpg"></div>
+<img src="css/image/galary7.png"></div>
 <div class="box">
-<img src="css/image/pre.jpg"></div>
+<img src="css/image/galary8.jpg"></div>
+<div class="box">
+<img src="css/image/galary9.jpg"></div>
+<div class="box">
+<img src="css/image/galary10.jpg"></div>
+<div class="box">
+<img src="css/image/galary11.jpg"></div>
+<div class="box">
+<img src="css/image/galary12.jpg"></div>
 </main>
 
 
