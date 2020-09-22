@@ -96,7 +96,7 @@ function prebokinginfo(){
 
 
             <center> <table  id="table" border='1'>
-                     <thead>       
+                     <thead>                    
                        <th>User Name</th>
 
                          <th>Room No</th>

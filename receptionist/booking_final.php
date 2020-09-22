@@ -16,7 +16,12 @@ if(isset($_SESSION['user_name']))
   $diff=date_diff($date1,$date2);
   $total_days = $diff->format("%a");
   $total_cost = $total_days * $price ;
- //session unset kor laghbe
+  
+  unset($_SESSION['room']);
+  unset($_SESSION['pre_checkin']);
+  unset($_SESSION['pre_checkout']);
+  unset($_SESSION['price']);
+
 
  if($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['btn_submit']))
  {

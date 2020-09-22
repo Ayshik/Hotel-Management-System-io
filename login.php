@@ -69,14 +69,16 @@ function login_validation()
                     $uname = mysqli_real_escape_string($con , $uname);
                     $entry_time = mysqli_real_escape_string($con , $entry_time);
 					$date = mysqli_real_escape_string ($con , $date);
+
+					$key_u = "$uname.$date";
 										                
-					$sql = "select * from receptionist_timing where user_name = ' $uname ' AND date = ' $date'";
+					$sql = "select * from receptionist_timing where u_date = '$key_u' ";
 					$r = mysqli_query($con, $sql);
 					$row1 = mysqli_num_rows($r);
 					echo $row1; 
 				    if($row1<1)
 				    {
-				    	$sql1 = "insert into receptionist_timing(user_name , date , entry_time , exit_time ) values('$uname' , '$date' , '$entry_time' , 'n' )";
+				    	$sql1 = "insert into receptionist_timing(user_name , date , entry_time , exit_time ,u_date) values('$uname' , '$date' , '$entry_time' , 'n' ,'$key_u')";
                         if(mysqli_query($con , $sql1))
                         {
                             header("location:receptionist/receptionist_dashboard.php");

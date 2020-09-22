@@ -148,10 +148,6 @@ function bokinginfo(){
 
 
                    </table>
-
-
-
-
            </div>
          </div>
        </div>
