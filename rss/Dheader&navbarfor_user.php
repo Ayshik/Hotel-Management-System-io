@@ -44,9 +44,7 @@
         <li>
           <a href="../guest/pre_booking.php"><i class="fas fa-stream"></i>BOOKING</a>
         </li>
-        <li>
-          <a href="../guest/cancel_booking.php"><i class="fas fa-stream"></i>CANCEL BOOKING</a>
-        </li>
+        
         <li>
           <a href="../guest/history.php"><i class="fas fa-stream"></i>HISTORY</a>
         </li>

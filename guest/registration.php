@@ -114,7 +114,7 @@ mysqli_close($con);
 </head>
 <body>
   <!-- header -->
-<div class="menu">
+  <div class="menu">
         <div class="leftmenu">
           <h3><a href="index.php">
 
@@ -127,14 +127,16 @@ mysqli_close($con);
         <div class="rightmenu">
           <ul>
             <li><a href="../index.php">HOME</a></li>
-            <li><a href="">Services</a></li>
-            <li><a href="">Nuru massage</a></li>
-            <li><a href="aboutus.html">About Us</a></li>
-            <li> <a href="contact.html">Contact</a> </li>
-            <li> <a href="../login.php">LOGIN</a></li>
+            <li><a href="../ourservices.php">Services</a></li>
+            <li><a href="../gellery.php">Gallery</a></li>
+
+            <li><a href="../aboutus.php">About Us</a></li>
+            <li>
+              <a href="../contact.php">Contact</a>
+            </li>
           </ul>
         </div>
-      </div>
+  </div>
 <!-- header -->
 <!-- error must be in red -->
 <form method="post" action="<?php htmlspecialchars($_SERVER['PHP_SELF'])?>" name="registration">

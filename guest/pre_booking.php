@@ -176,7 +176,7 @@ if(isset($_SESSION['user_name']))
 
     $uname = $_SESSION['user_name'];
 
-    $sql = "insert into pre_booking(user_name , room_number , payment , Totalcost , Payment_due , check_in , check_out , pre_check_in , pre_check_out) values('$uname' , '$room' ,'$payment' , '$total_cost' , '$payment_due' , 'N' , 'N' , '$pre_check_in','$pre_check_out') ";
+    $sql = "insert into pre_booking(user_name , room_number , payment , Totalcost , Payment_due , check_in , check_out , pre_check_in , pre_check_out , status) values('$uname' , '$room' ,'$payment' , '$total_cost' , '$payment_due' , 'N' , 'N' , '$pre_check_in','$pre_check_out', 'New') ";
 
     if(mysqli_query($con,$sql))
     {

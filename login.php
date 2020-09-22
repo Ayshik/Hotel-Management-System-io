@@ -39,7 +39,7 @@ function validate($data)
 }
 function login_validation()
 { 
-	global $flag,$uname,$pass,$con;
+	global $flag,$uname,$pass,$con,$uname_err,$pass_err;
 	$pass_db = "";
 	$u_type=0;
 	if($flag==0)
@@ -105,11 +105,11 @@ function login_validation()
 				}
 		   }
 		   else{
-			    echo "password doesnot match";
+			    $pass_err =  "password doesnot match";
 		   }
 	   }
 	   else{
-		   echo "USername doesnot exist";
+		   $uname_err =  "USername doesnot exist";
 	   }
 
        
@@ -136,12 +136,14 @@ function login_validation()
         </div>
         <div class="rightmenu">
           <ul>
-            <li> <a href="index.php">HOME</a></li>
-            <li> <a href="">Services</a></li>
-            <li> <a href="">Nuru massage</a></li>
-            <li> <a href="aboutus.html">About Us</a></li>
-			<li> <a href="contact.html">Contact</a></li>
-			<li> <a href="login.php">LOGIN</a></li>
+            <li><a href="index.php">HOME</a></li>
+            <li><a href="ourservices.php">Services</a></li>
+            <li><a href="gellery.php">Gallery</a></li>
+
+            <li><a href="aboutus.php">About Us</a></li>
+            <li>
+              <a href="contact.php">Contact</a>
+            </li>
           </ul>
         </div>
       </div>
@@ -159,7 +161,7 @@ function login_validation()
         <td><input type="text" name="uname" id="uname" value="<?php echo $uname;?>" placeholder="USERNAME"></td>      
     </tr>
     <tr class='error'>
-    	<td><div style="color:red;"><?php echo $uname_err;?></div></td>
+    	<td><div style="color:blue;"><?php echo $uname_err;?></div></td>
     </tr>        
     <tr>
 		<td><p>PASSWORD</p></td>		
@@ -169,7 +171,7 @@ function login_validation()
     </tr>
 
      <tr class='error'>
-    	<td><div style="color:red;"><?php echo  $pass_err;?></div></td>
+    	<td><div style="color:blue;"><?php echo  $pass_err;?></div></td>
 	</tr> 
 	
 	<tr>

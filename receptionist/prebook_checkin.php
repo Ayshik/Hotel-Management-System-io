@@ -24,9 +24,10 @@ if(isset($_SESSION['user_name']))
       $fill = 1;
 
       $_SESSION['room'] = $_POST['room'];
-      $_SESSION['total'] =$info['total_room_price'];
+      $_SESSION['total'] =$info['Totalcost'];
       $_SESSION['pay']=$info['payment'];
-      $_SESSION['due']=$info['payment_due'];
+      $_SESSION['due']=$info['Payment_due'];
+      $_SESSION['serial']=$info['serial'];
     }
   }
   if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['btn_submit']))
@@ -37,7 +38,9 @@ if(isset($_SESSION['user_name']))
     $pay = $_SESSION['pay'];
     $due = $_SESSION['due'];
     $room = $_SESSION['room'];
+    $serial = $_SESSION['serial'];
 
+    unset($_SESSION['serial']);
     unset($_SESSION['room']);
     unset($_SESSION['total']);
     unset($_SESSION['pay']);
@@ -55,17 +58,32 @@ if(isset($_SESSION['user_name']))
       $due = mysqli_real_escape_string($con, $due);
 
     }
+     $uname = $_POST['name'];
+     $checkin = $_POST['cin'];
      $check_out = $_POST['cout'];
      $check_out = mysqli_real_escape_string($con,$check_out);
+     $checkin = mysqli_real_escape_string($con,$checkin);
+     $uname = mysqli_real_escape_string($con,$uname);
 
-     $sql = "update room_booking SET payment = '$pay' , payment_due = '$due' , check_out = '$check_out' where room_number = '$room'";
+     $sql = "update pre_booking SET check_in = '$checkin' , check_out = ' $check_out ' , status = 'Old' where serial ='$serial' ";
      if(mysqli_query($con , $sql))
      {
         $error_message = "PAYMENT SUCCESSFUL";
      }
      else
      {
-        echo "Error while updating in room value: " . $sql . "<br>" . mysqli_error($con);
+        echo "Error while updating in room value of pre book: " . $sql . "<br>" . mysqli_error($con);
+     }
+// insert in book table
+     $recep_name = $_SESSION['user_name'];
+     $sql1 = "insert into room_booking(user_name,phone_no,nid_no,room_number,total_room_price,payment,payment_due,check_in,check_out,booked_by,status) values ('$uname' , 'N' , 'N' , '$room' , '$total', '$pay', '$due' , '$checkin' , '$check_out' ,'$recep_name' ,'New')";
+     if(mysqli_query($con , $sql1))
+     {
+        $error_message = "PAYMENT SUCCESSFUL";
+     }
+     else
+     {
+        echo "Error while inserting in book table: " . $sql . "<br>" . mysqli_error($con);
      }
 
   }
@@ -165,12 +183,9 @@ body{
     <div class="dashbord">
       <div class="icon-section">
         <div class="wrapper">
-              <h2>Booking</h2>
+              <h2>PreBook CheckIN To Book</h2>
               <div id="error_message"></div>
     <form name='update'  method="POST" action="">
-
-
-
 
     				<div class="input_field">
 
@@ -181,7 +196,7 @@ body{
 
                 <?php
                 if($fill == 0)
-                {    $sql = "select room_number from pre_booking";
+                {    $sql = "select room_number from pre_booking where status ='New' ";
                       $result = mysqli_query($con,$sql);
                       while($row = mysqli_fetch_assoc($result))
                       {
@@ -210,7 +225,7 @@ body{
             </tr>
            <tr>
              <td>
-               <input type="text" placeholder='Check in time'value="<?php if($fill == 1) {echo $info["check_in"]; }?>" name="cin"></td>
+               <input type="text" placeholder='Check in time'value="<?php if($fill == 1) {echo $info["pre_check_in"]; }?>" name="cin"></td>
             </tr>
 
             <tr>
@@ -218,13 +233,13 @@ body{
              </tr>
             <tr>
               <td>
-                <input type="text" placeholder='Check out time'value="<?php if($fill == 1) {echo $info["check_out"]; } ?>" name="cout"></td>
+                <input type="text" placeholder='Check out time'value="<?php if($fill == 1) {echo $info["pre_check_out"]; } ?>" name="cout"></td>
              </tr>
              <tr>
                   <td><p>Total Cost</p></td>
                 </tr>
                <tr>
-                 <td><input type="number" name="tc" id="tk" value="<?php if($fill == 1){echo $info["total_room_price"]; } ?>"></td>
+                 <td><input type="number" name="tc" id="tk" value="<?php if($fill == 1){echo $info["Totalcost"]; } ?>"></td>
                 </tr>
 
 
@@ -235,15 +250,11 @@ body{
                     <td><input type="number" name="payment" value="<?php if($fill == 1) {echo $info["payment"]; }?>"></td>
                    </tr>
 
-
-
-
-
                 <tr>
                   <td><p>Payment Due</p></td>
                 </tr>
                 <tr>
-                  <td><input type='text' value = "<?php if($fill == 1){echo $info["payment_due"];} ?>"> </td>
+                  <td><input type='text' value = "<?php if($fill == 1){echo $info["Payment_due"];} ?>"> </td>
                 </tr>
 
                 <tr>
@@ -258,7 +269,7 @@ body{
 
         <div class="btn">
            <tr>
-             <td colspan=2><input type="submit" name="btn_submit" value="update" id='btn_submit'></td>
+             <td colspan=2><input type="submit" name="btn_submit" value="Insert" id='btn_submit'></td>
            </tr>
         </div>
 

@@ -25,17 +25,17 @@
 
 		<div>
 		<i class="fa fa-map-marker"></i>
-		<p><span>Sirajgonj Sadar</span> Sirajgonj, Bangladesh</p>
+		<p><span>Coxs Bazar</span> Coxs Bazar, Bangladesh</p>
 		</div>
 
 		<div>
 		<i class="fa fa-phone"></i>
-		<p>01775503498</p>
+		<p>01689519830</p>
 		</div>
 
 		<div>
 		<i class="fa fa-envelope"></i>
-		<p><a href="mailto:Ayshikmee@gmail.com">Ayshikmee@gmail.com</a></p>
+		<p><a href="mailto:choyondas100@gmail.com">choyondas100@gmail.com</a></p>
 		</div>
 
 		</div>

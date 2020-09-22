@@ -58,7 +58,7 @@ if(isset($_SESSION['user_name']))
      $check_out = $_POST['cout'];
      $check_out = mysqli_real_escape_string($con,$check_out);
      
-     $sql = "update room_booking SET payment = '$pay' , payment_due = '$due' , check_out = '$check_out' where room_number = '$room'";
+     $sql = "update room_booking SET payment = '$pay' , payment_due = '$due' , check_out = '$check_out' where room_number = '$room' and status='New'";
      if(mysqli_query($con , $sql))
      {
         $error_message = "PAYMENT SUCCESSFUL";

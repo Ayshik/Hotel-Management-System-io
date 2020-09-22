@@ -133,7 +133,7 @@ background-color: #45a049;
                <input type="hidden" name="sl" id="no">
 
                  <div class="row">
-                   <input id="pre" type="submit" name="prebooking" value="Prebooke">
+                   <input id="pre" type="submit" name="prebooking" value="Prebooked">
                  </div>
 
                 <div class="row">

@@ -95,7 +95,7 @@ function prebokinginfo(){
 
             <table id="table" style={border:1px>
                     <thead>
-                      <th>Sl.</th>
+                      <!-- <th>Sl.</th> -->
                         <th>Room No</th>
                       <th>Payment</th>
                       <th>Total Cost</th>
@@ -113,7 +113,7 @@ function prebokinginfo(){
                   foreach($infos as $info)
                   {
                     echo "<tr>";
-					echo "<td>".$info["serial"]."</td>";
+					// echo "<td>".$info["serial"]."</td>";
 					
                       echo "<td>".$info["room_number"]."</td>";
                         echo "<td>".$info["payment"]."</td>";
@@ -123,7 +123,7 @@ function prebokinginfo(){
                 echo "<td>".$info["pre_check_out"]."</td>";
                        
 
-            echo '<td><button class="btn"><a href="deletprebook.php?id='.$info["serial"].'" i class="fa fa-trash">  Remove</a></td>';
+            echo '<td><button class="btn"><a href="deletprebook.php?id='.$info["serial"].'" i class="fa fa-trash"> Cancel Booking </a></td>';
                     echo "</tr>";
                   }
                 ?>

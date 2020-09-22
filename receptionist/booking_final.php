@@ -33,7 +33,7 @@ if(isset($_SESSION['user_name']))
 	  $paymendue=$total_cost-$payment;
 	  $addedby=$_SESSION['user_name'];
 	  
-$sql="insert into room_booking(`user_name`, `phone_no`, `nid_no`, `room_number`, `total_room_price`, `payment`, `payment_due`, `check_in`, `check_out`, `booked_by`) values('$name','$phone','$nid','$roomno','$total_cost','$payment','$paymendue','$check_in','$check_out','$addedby')";
+$sql="insert into room_booking(`user_name`, `phone_no`, `nid_no`, `room_number`, `total_room_price`, `payment`, `payment_due`, `check_in`, `check_out`, `booked_by`, 'status ' ) values('$name','$phone','$nid','$roomno','$total_cost','$payment','$paymendue','$check_in','$check_out','$addedby' , 'New')";
 
   if (mysqli_query($con, $sql)) {
 	  
