@@ -9,7 +9,7 @@ if(isset($_SESSION['user_name']))
   if($_SERVER['REQUEST_METHOD']== "POST")
 {
 
-  if(isset($_POST['room_submit']))  
+  if(isset($_POST['room_submit']))
   {
     $class1 = $_POST['class_room'];
 
@@ -30,7 +30,7 @@ if(isset($_SESSION['user_name']))
                   $file_name_real = $class1 .'.'."jpg";
                   $loc = '../css/image/'.$file_name_real;
                   move_uploaded_file($file_tmp_name , $loc);
-                  
+
               }
               else
               {
@@ -71,7 +71,7 @@ if(isset($_SESSION['user_name']))
                   $file_name_real = $class2 .'.'."jpg";
                   $loc = '../css/image/'.$file_name_real;
                   move_uploaded_file($file_tmp_name , $loc);
-                  
+
               }
               else
               {
@@ -91,7 +91,7 @@ if(isset($_SESSION['user_name']))
 
 // if($_SERVER['REQUEST_METHOD']== "POST" && isset($_POST['galary_submit']))
 // {
-    
+
   if(isset($_POST['galary_submit']))
   {
     $class = $_POST['class'];
@@ -113,7 +113,7 @@ if(isset($_SESSION['user_name']))
                   $file_name_real = 'galary'.$class .'.'."jpg";
                   $loc = '../css/image/'.$file_name_real;
                   move_uploaded_file($file_tmp_name , $loc);
-                
+
               }
               else
               {
@@ -162,7 +162,7 @@ body{
 }
 .cpic{
 
-	margin: 0; 
+	margin: 0;
   padding: 0;
   box-sizing: border-box;
   outline: none;
@@ -236,7 +236,7 @@ body{
 }
 .cpic{
 
-	margin: 0;  
+	margin: 0;
   padding: 0;
   box-sizing: border-box;
   outline: none;
@@ -301,7 +301,7 @@ body{
 }
 .cpic{
 
-	margin: 0;  
+	margin: 0;
   padding: 0;
   box-sizing: border-box;
   outline: none;
@@ -365,7 +365,7 @@ body{
             <div class="wrapper">
 
   <form method="post" action="<?php htmlspecialchars($_SERVER['PHP_SELF'])?>" enctype ="multipart/form-data">
-  
+
 <div class="cpic">
           <h2>Room Picture Customize</h2>
             <div id="error_message" > <?php echo $error_message1; ?> </div>
@@ -462,7 +462,7 @@ body{
                     <option value="1" selected>1</option>
                     <option value="2" >2</option>
                     <option value="3">3</option>
-					 
+
                     <option value="4">4</option>
 					<option value="5">5</option>
 					<option value="6">6</option>
@@ -472,7 +472,7 @@ body{
 					 <option value="10">10</option>
                     <option value="11">11</option>
 					 <option value="12">12</option>
-                   
+
 
                   </select>
 
@@ -520,5 +520,3 @@ body{
     </section>
   </body>
 </html>
-
-<script>
